@@ -1,4 +1,4 @@
-import { ThemeConfig, extendTheme, ComponentStyleConfig, defineStyleConfig } from "@chakra-ui/react"
+import { ThemeConfig, extendTheme, ComponentStyleConfig, defineStyleConfig, background } from "@chakra-ui/react"
 
 const config: ThemeConfig = {
   initialColorMode: "light",
@@ -24,6 +24,42 @@ const ContainerStyle = {
   },
 }
 
+const TextStyle = {
+  baseStyle: {
+    color: "#024B6C",
+    fontSize: 16,
+  },
+  sizes: {},
+  variants: {},
+  defaultProps: {
+    size: '',
+    variant: '',
+    colorScheme: '',
+  },
+}
+
+const ButtonStyle = {
+  // style object for base or default style
+  baseStyle: {
+    padding: 2,
+    minWidth: "150px",
+    maxWidth: "150px",
+    borderRadius: 0,
+    backgroundColor: "#E9490A",
+    color: "#ffffff",
+  },
+  // styles for different sizes ("sm", "md", "lg")
+  sizes: {},
+  // styles for different visual variants ("outline", "solid")
+  variants: {},
+  // default values for 'size', 'variant' and 'colorScheme'
+  defaultProps: {
+    size: '',
+    variant: 'solid',
+    colorScheme: '',
+  },
+}
+
 const IconButtonStyle = {
   // style object for base or default style
   baseStyle: {},
@@ -42,7 +78,7 @@ const IconButtonStyle = {
 const breakpoints = {
   base: '0px',
   sm: '640px',
-  md: '1000px',
+  md: '768px',
   lg: '1200px',
   xl: '1280px',
   '2xl': '1920px',
@@ -51,7 +87,9 @@ const breakpoints = {
 const theme = extendTheme({ config },{
   components: {
     Container: ContainerStyle,
-    IconButton: IconButtonStyle
+    IconButton: IconButtonStyle,
+    Button: ButtonStyle,
+    Text: TextStyle,
   },
   fonts: {
     heading: 'var(--font-rubik)',

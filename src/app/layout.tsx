@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Components from '@/components'
 import { ColorModeScript } from "@chakra-ui/react";
 import theme from '@/chakra'
-const inter = Inter({ subsets: ["latin"] });
+const inter = Open_Sans({ 
+  subsets: ["latin"] 
+});
 
 export const metadata: Metadata = {
   title: "Dental Appointment",
