@@ -49,6 +49,7 @@ const Orthodontic: FC<OrthodonticProps> = ({}) => {
           {orthodonticServicesData.map((service) => {
             return (
               <Cards.OrthodonticCard
+                key={service.id}
                 index={service.id}
                 src={service.imgpath}
                 label={service.label}
