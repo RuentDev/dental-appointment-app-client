@@ -15,8 +15,18 @@ const Navbar:FC<NavbarProps> = ({}) => {
   const btnRef = React.useRef()
 
   return (
-    <nav>
-      <Container maxW="100%" height={70} border={0} backgroundColor="#18AFD3" px={20} display={{base: "none", md: "block"}}>
+    <nav style={{position: "fixed", width: "100%", height: "auto", zIndex: 999}}>
+      <Container 
+        maxW="100%" 
+        height={70} 
+        border={0} 
+        px={20} 
+        backgroundColor="#18AFD3" 
+        display={{
+          base: "none", 
+          md: "block"
+        }}
+      >
         <Flex 
           w="100%" 
           h="100%" 
