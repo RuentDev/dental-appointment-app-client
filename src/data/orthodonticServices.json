@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "label": "Initial Exam",
+    "icon": "/initial-exam.png"
+  },
+  {
+    "id": 1,
+    "label": "Oral Surgery",
+    "icon": "/oral-surgery.png"
+  },
+  {
+    "id": 2,
+    "label": "Metal Braces",
+    "icon": "/metal-braces.png"
+  },
+  {
+    "id": 3,
+    "label": "Clear Aligners",
+    "icon": "/clear-aligners.png"
+  },
+  {
+    "id": 4,
+    "label": "Ceramic Braces",
+    "icon": "/ceramic-braces.png"
+  },
+  {
+    "id": 5,
+    "label": "Ortophan",
+    "icon": "/ortophan.png"
+  }
+]
