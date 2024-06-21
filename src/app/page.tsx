@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Container, Flex, Input, Select, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Container, Flex, Image, Input, Select, Stack, Text } from '@chakra-ui/react'
 import Components from '@/components'
 
 const HomePage = () => {
@@ -15,57 +15,117 @@ const HomePage = () => {
     backgroundRepeat="no-repeat"
     backgroundSize="cover"
     backgroundPosition={{
-      base: "center center",
+      base: "bottom center",
       md: "bottom center"
     }}
     position="relative"
   >
    <Container 
-      bottom={-10}
       top="50%"
       left="50%"
-      maxW="90%"
+      maxW="80%"
       bg="#18AFD3"
       border="0"
-      borderRadius={10}
+      borderRadius={0}
       position="absolute" 
+      bottom={-10}
       transform="translate(-50%, 20%)"
-      p={20}
+      p={{
+        base: 5,
+        lg: 20,
+      }}
     >
-      <Flex gap={5}>
-        <form>
-          <Text as="strong" fontSize={64} color="#ffffff" lineHeight={1}>Schedule Your Dental <br/> Appointment Today</Text>
-          <Stack gap={5} maxW={500} mt={10}>
-            <Input 
-              type='email'
-              borderRadius={0}
-              bg="#ffffff"
-              placeholder='Your Email Adress'
-              border={0}
-              outline={0}
-            />
-
-            <Flex gap={5}>
-              <Select bg="#ffffff" borderRadius={0} placeholder='Select Your Dentist'>
-                <option value='option1'>Option 1</option>
-                <option value='option2'>Option 2</option>
-                <option value='option3'>Option 3</option>
-              </Select>
+      <Flex 
+        gap={5} 
+        justifyContent="space-between"
+        flexDirection={{
+          base: "row",
+          sm: "column-reverse",
+          md: "row",
+        }}
+        position="relative"
+      >
+        <Container maxW="100%" p={0} border={0}>
+          <form>
+            <Text 
+              as="strong" 
+              fontSize={{
+                base: "1.35rem",
+                sm: "2rem",
+                md: "2.6rem",
+                lg: "4.5rem",
+              }} 
+              color="#ffffff" 
+              lineHeight={1}
+            >
+              Schedule Your Dental <br/> Appointment Today
+            </Text>
+            <Stack gap={5} maxW={500} mt={10}>
               <Input 
-                size='md' 
-                type='datetime-local' 
+                type='email'
+                border={0}
+                outline={0}
                 bg="#ffffff"
-                placeholder='Select Date and Time' 
+                color="#024B6C"
+                borderRadius={0}
+                w={{
+                  base: "100%",
+                  sm: "70%",
+                }}
+                placeholder='Your Email Adress'
               />
-            </Flex>
-            
-            <Button>Book Now</Button>
-          </Stack>
-        </form>
 
-        <Box>
-          asd
-        </Box>
+              <Flex
+                gap={4}
+                flexDirection={{
+                  base: "column",
+                  sm: "row"
+                }}
+
+              >
+                <Select 
+                  bg="#ffffff" 
+                  color="#024B6C" 
+                  borderRadius={0} 
+                  placeholder='Select Your Dentist'
+                >
+                  <option value='option1'>Option 1</option>
+                  <option value='option2'>Option 2</option>
+                  <option value='option3'>Option 3</option>
+                </Select>
+                <Input 
+                  size='md' 
+                  bg="#ffffff"
+                  color="#024B6C"
+                  type='datetime-local' 
+                  borderRadius={0}
+                  placeholder='Select Date and Time' 
+                />
+              </Flex>
+              
+              <Button>Book Now</Button>
+            </Stack>
+          </form>
+        </Container>
+
+        <Image 
+          src='/smile-image.png'
+          position={{
+            base: "absolute",
+          }}
+          top={{
+            base: "-3rem",
+            sm: "-4rem",
+            lg: "-11rem",
+          }}
+          right={0}
+          w={{
+            base: 100,
+            sm: 170,
+            md: 220,
+            lg: 500,
+          }}
+        />
       </Flex>
     </Container> 
   </Container>  
