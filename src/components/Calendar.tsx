@@ -23,8 +23,6 @@ const Calendar:FC<IProps> = (props) => {
         onChange={handleCalendarValueChange}
         activeStartDate={new Date()}
         calendarType="gregory"
-        minDate={new Date()}
-        className=""
       />
     </div>
   );

@@ -13,11 +13,11 @@ const HomePage = () => {
     margin={0} 
     backgroundImage="landing-section-bg-image.png"
     backgroundRepeat="no-repeat"
-    backgroundSize="cover"
+    backgroundSize={{base: "contain", md: "cover"}}
     backgroundPosition="center center"
   >
     <Components.Navbar />
-    <Container maxW="100%" h="80%" padding={20} border={0}>
+    <Container maxW="100%" h="80%" padding={{base: 5, md: 20}} border={0}>
       <Stack>
         <Text as="p" fontStyle="italic" color="#E9490A">Changing lives One Smile at a Time</Text>
         <Text as="strong" fontSize={50} lineHeight={1}>Dental Services for the <br/> Entire family</Text>
@@ -28,7 +28,7 @@ const HomePage = () => {
       </Stack>
     </Container>
 
-    <Container maxW="100%" h="100%" padding={20} border={0} position="relative">
+    {/* <Container maxW="100%" h="100%" padding={20} border={0} position="relative">
       <Flex alignItems="center" justifyContent="center">
         <Container>
          <Flex flexWrap="wrap" alignItems="start" p={10}> 
@@ -36,7 +36,7 @@ const HomePage = () => {
          </Flex>
         </Container>
       </Flex>
-    </Container>
+    </Container> */}
   </Container>  
   )
 }
