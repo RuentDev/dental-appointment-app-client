@@ -7,6 +7,7 @@ import LandingSection from "./LandingSection";
 import AboutSection from "./AboutSection";
 import BlogSection from "./BlogSection";
 import Cards from "./Cards";
+import Overlay from "./Overlay";
 
 
 
@@ -20,6 +21,7 @@ const components = {
   Orthodontic,
   AboutSection,
   BlogSection,
+  Overlay,
 }
 
 
