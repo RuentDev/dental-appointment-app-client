@@ -1,7 +1,10 @@
+"use client"
 import { Container, Text, Flex, Stack, Input, Select, Button, Image } from '@chakra-ui/react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const LandingSection = () => {
+  const router = useRouter()
   return (
     <Container 
     maxW="100%" 
@@ -102,7 +105,7 @@ const LandingSection = () => {
                 />
               </Flex>
               
-              <Button>Book Now</Button>
+              <Button onClick={() => router.push("/auth/signin")}>Book Now</Button>
             </Stack>
           </form>
         </Container>

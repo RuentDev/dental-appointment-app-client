@@ -1,18 +1,18 @@
 "use client"
-import { Box, Button, Container, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Grid, GridItem, Icon, IconButton, Input, ListItem, Text, UnorderedList, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Container, Drawer, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Grid, GridItem, Icon, IconButton, Input, ListItem, Text, UnorderedList, useDisclosure } from "@chakra-ui/react";
 import { FaPhoneAlt, FaRegCalendar, FaBars } from "react-icons/fa";
-import { FaLocationDot , FaMagnifyingGlass} from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 import React, { FC } from "react";
 import Link from "next/link";
 import navLinks from '@/data/navLinks.json'
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {};
 
 const Navbar:FC<NavbarProps> = ({}) => {
-  
+  const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = React.useRef()
 
   return (
     <nav style={{position: "fixed", width: "100%", height: "auto", zIndex: 999}}>
@@ -71,16 +71,18 @@ const Navbar:FC<NavbarProps> = ({}) => {
         <Grid templateColumns='1fr 3fr 1fr' gap={6} height="100%">
           <GridItem w='100%' maxH="100%">
             <Flex w="100%" height="100%" alignItems="center" justifyContent="start">
-              <Image 
-                width={200}
-                height={200}
-                alt='logo'
-                src="/logo.png"
-                style={{
-                  width: "auto",
-                  height: "auto"
-                }}
-              />
+              <Link href="/">
+                <Image 
+                  width={200}
+                  height={200}
+                  alt='logo'
+                  src="/logo.png"
+                  style={{
+                    width: "auto",
+                    height: "auto"
+                  }}
+                />
+              </Link>
             </Flex>
           </GridItem>
           <GridItem w='100%' h="100%">
@@ -96,7 +98,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
           </GridItem>
           <GridItem w='100%' maxH="100%">
             <Flex height="100%" width="100%" alignItems="center" justifyContent="end">
-              <Button>
+              <Button onClick={() => router.push("/auth/signin")}>
                 Signin
               </Button>
             </Flex>

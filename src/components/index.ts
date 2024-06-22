@@ -9,6 +9,7 @@ import BlogSection from "./BlogSection";
 import Cards from "./Cards";
 import Overlay from "./Overlay";
 import ContactUsSection from "./ContactUsSection";
+import Forms from "./Forms";
 
 
 
@@ -24,6 +25,7 @@ const components = {
   BlogSection,
   Overlay,
   ContactUsSection,
+  Forms,
 }
 
 

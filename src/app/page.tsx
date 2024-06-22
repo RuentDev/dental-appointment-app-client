@@ -7,7 +7,7 @@ const HomePage = () => {
     <Stack w="100%" gap="300px">
       <Components.LandingSection />
       <Components.AboutSection />
-      {/* <Components.Orthodontic /> */}
+      <Components.Orthodontic />
       <Components.BlogSection />
       <Components.ContactUsSection />
     </Stack>
