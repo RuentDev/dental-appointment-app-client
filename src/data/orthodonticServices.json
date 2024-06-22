@@ -2,31 +2,31 @@
   {
     "id": 0,
     "label": "Initial Exam",
-    "icon": "/img/initial-exam.png"
+    "imgpath": "/img/initial-exam.png"
   },
   {
     "id": 1,
     "label": "Oral Surgery",
-    "icon": "/img/oral-surgery.png"
+    "imgpath": "/img/oral-surgery.png"
   },
   {
     "id": 2,
     "label": "Metal Braces",
-    "icon": "/img/metal-braces.png"
+    "imgpath": "/img/metal-braces.png"
   },
   {
     "id": 3,
     "label": "Clear Aligners",
-    "icon": "/img/clear-aligners.png"
+    "imgpath": "/img/clear-aligners.png"
   },
   {
     "id": 4,
     "label": "Ceramic Braces",
-    "icon": "/img/ceramic-braces.png"
+    "imgpath": "/img/ceramic-braces.png"
   },
   {
     "id": 5,
     "label": "Ortophan",
-    "icon": "/img/ortophan.png"
+    "imgpath": "/img/ortophan.png"
   }
 ]
