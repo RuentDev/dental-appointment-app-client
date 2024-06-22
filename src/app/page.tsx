@@ -9,6 +9,7 @@ const HomePage = () => {
       <Components.AboutSection />
       {/* <Components.Orthodontic /> */}
       <Components.BlogSection />
+      <Components.ContactUsSection />
     </Stack>
   )
 }

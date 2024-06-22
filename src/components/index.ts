@@ -8,6 +8,7 @@ import AboutSection from "./AboutSection";
 import BlogSection from "./BlogSection";
 import Cards from "./Cards";
 import Overlay from "./Overlay";
+import ContactUsSection from "./ContactUsSection";
 
 
 
@@ -22,6 +23,7 @@ const components = {
   AboutSection,
   BlogSection,
   Overlay,
+  ContactUsSection,
 }
 
 
