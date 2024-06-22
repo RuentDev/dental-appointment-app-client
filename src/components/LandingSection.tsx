@@ -22,7 +22,7 @@ const LandingSection = () => {
    <Container 
       top="50%"
       left="50%"
-      maxW="80%"
+      maxW="92%"
       bg="#18AFD3"
       border="0"
       borderRadius={0}

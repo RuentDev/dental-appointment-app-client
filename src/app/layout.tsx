@@ -26,7 +26,7 @@ export default function RootLayout({
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Components.ChakraUIProvider>
           <Flex w="100%" h="100%" position="relative">
-            <Components.Navbar />
+            {/* <Components.Navbar /> */}
             {children}
           </Flex>
         </Components.ChakraUIProvider>

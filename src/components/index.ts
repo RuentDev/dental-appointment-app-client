@@ -4,6 +4,9 @@ import Navbar from "./Navbar";
 import Calendar from "./Calendar";
 import Orthodontic from "./Orthodontic";
 import LandingSection from "./LandingSection";
+import AboutSection from "./AboutSection";
+
+
 
 const components = {
   ChakraUIProvider,
@@ -12,6 +15,7 @@ const components = {
   Navbar,
   Calendar,
   Orthodontic,
+  AboutSection
 }
 
 

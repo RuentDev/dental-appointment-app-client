@@ -67,7 +67,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
         </Flex>
       </Container>
       
-      <Container maxW="100%" height={100} px={20} display={{base: "none", md: "block"}} border={0}>
+      <Container maxW="100%" height={100} px={20} display={{base: "none", md: "block"}} border={0} bg="#ffffff">
         <Grid templateColumns='1fr 3fr 1fr' gap={6} height="100%">
           <GridItem w='100%' maxH="100%">
             <Flex w="100%" height="100%" alignItems="center" justifyContent="start">
