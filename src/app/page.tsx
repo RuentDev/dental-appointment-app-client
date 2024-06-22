@@ -4,8 +4,9 @@ import { Spacer, Stack } from '@chakra-ui/react'
 
 const HomePage = () => {
   return (
-    <Stack w="100%" gap="300px">
+    <Stack w="100%">
       <Components.LandingSection />
+      <Components.AppointmentSection />
       <Components.AboutSection />
       <Components.Orthodontic />
       <Components.BlogSection />
