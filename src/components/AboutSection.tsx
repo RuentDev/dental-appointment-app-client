@@ -1,6 +1,7 @@
 "use client"
 import { Container, Flex, Stack, Text, Image, HStack, Icon, VStack } from '@chakra-ui/react'
 import { IoBagAddOutline } from "react-icons/io5";
+import { BiHomeHeart } from "react-icons/bi";
 import React from 'react'
 
 const AboutSection = () => {
@@ -60,7 +61,7 @@ const AboutSection = () => {
           </Flex>
           <Flex flexDirection="column">
             <Flex gap={2} alignItems="center">
-              <IoBagAddOutline color='#18afd3'/>
+              <BiHomeHeart color='#18afd3'/>
               <Text align="start" as="strong" fontSize={{md: "2xl"}}>Get your services right!</Text>
             </Flex>
             <Text as="p" ml={6} color="#657E96">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ipsa delectus accusantium consequuntur vitae dolores minima mollitia ex eveniet quam?</Text>

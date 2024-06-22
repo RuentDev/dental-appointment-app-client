@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "title": "When you need a dental cleaning?",
+    "date": "June 20, 2024",
+    "thumbnail": "/img/blog1.png",
+    "link": "/"
+  },
+  {
+    "id": 1,
+    "title": "Top 5 Foods That Can Whiten Your Teeth Effectivly",
+    "date": "June 30, 2024",
+    "thumbnail": "/img/blog2.png",
+    "link": "/"
+  },
+  {
+    "id": 2,
+    "title": "Is Your Floss Toxic? Find a safe one",
+    "date": "June 20, 2024",
+    "thumbnail": "/img/blog3.png",
+    "link": "/"
+  }
+]
