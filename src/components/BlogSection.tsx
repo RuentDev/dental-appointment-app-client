@@ -1,11 +1,17 @@
 import React from 'react'
 import Cards from './Cards'
-import { Container, Grid, GridItem } from '@chakra-ui/react'
+import { Container, Grid, GridItem, Stack, Text } from '@chakra-ui/react'
 import blogs from '@/data/blogs.json'
 
 const BlogSection = () => {
   return (
     <Container maxW="100%" h="auto" padding={20} bg="#eef8ff">
+
+      <Stack gap={1} my={10}>
+        <Text as="p" color='#E9490A' fontWeight={700} textAlign="center">READ OUR BLOG</Text>
+        <Text as="h2" fontWeight={700} fontSize={32} align="center">Latest Articles</Text>
+      </Stack>
+
       <Grid
         w="100%"
         h="auto"

@@ -20,7 +20,7 @@ const BlogCard = ({title, thumbnail, date, link}: BlogCardProps) => {
           />
         </Box>
         <Stack bg="white" gap={5} p={5}>
-          <Text as="strong" fontSize="2xl">{title}</Text>
+          <Text as="strong" fontSize="2xl" height={50}>{title}</Text>
           <Text as="p">{date}</Text>
         </Stack>
       </Stack>
