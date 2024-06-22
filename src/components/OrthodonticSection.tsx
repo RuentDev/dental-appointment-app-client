@@ -5,7 +5,7 @@ import Cards from "./Cards";
 
 interface OrthodonticProps {}
 
-const Orthodontic: FC<OrthodonticProps> = ({}) => {
+const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
   return (
     <Container
       maxW="100%"
@@ -65,4 +65,4 @@ const Orthodontic: FC<OrthodonticProps> = ({}) => {
   );
 };
 
-export default Orthodontic;
+export default OrthodonticSection;

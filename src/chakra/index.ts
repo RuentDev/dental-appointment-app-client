@@ -49,7 +49,11 @@ const ButtonStyle = {
     borderBottomRightRadius: 0,
     borderBottomLeftRadius: 15,
     backgroundColor: "#E9490A",
+    transition: "ease-in-out 300ms",
     color: "#ffffff",
+    _hover: {
+      borderRadius: 0,
+    }
   },
   // styles for different sizes ("sm", "md", "lg")
   sizes: {},
