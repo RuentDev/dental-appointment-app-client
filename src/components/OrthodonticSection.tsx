@@ -9,7 +9,7 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
   return (
     <Container
       maxW="100%"
-      height='100vh'
+      height='auto'
       backgroundColor="#EEF8FF"
       fontWeight="700"
     >
