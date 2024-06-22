@@ -5,7 +5,7 @@ import Cards from "./Cards";
 
 interface OrthodonticProps {}
 
-const Orthodontic: FC<OrthodonticProps> = ({}) => {
+const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
   return (
     <Container
       maxW="100%"
@@ -46,6 +46,7 @@ const Orthodontic: FC<OrthodonticProps> = ({}) => {
           {orthodonticServicesData.map((service) => {
             return (
               <Cards.OrthodonticCard
+                key={service.id}
                 index={service.id}
                 icon={service.icon}
                 label={service.label}
@@ -60,4 +61,4 @@ const Orthodontic: FC<OrthodonticProps> = ({}) => {
   );
 };
 
-export default Orthodontic;
+export default OrthodonticSection;
