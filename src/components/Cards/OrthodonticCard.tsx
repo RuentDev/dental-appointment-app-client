@@ -1,31 +1,50 @@
 import React from "react";
-import { Box, Container, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 interface OrthodonticCardProps {
   index: number;
-  icon: string;
+  src: string;
   label: string;
   width: number;
   height: number;
+  borderWidth: string;
 }
 
 const OrthodonticCard = (props: OrthodonticCardProps) => {
   return (
-    <Container position="relative">
+    <Container
+      position="relative"
+      borderWidth={props.borderWidth}
+      overflow="hidden"
+      _hover={{ '.labelBox': { display: 'flex' } }}
+    >
       <Image
         alt="services"
         width={props.width}
         height={props.height}
-        src={props.icon}
+        src={props.src}
       />
       <Box
+        position="absolute"
+        top="0"
+        left="0"
+        width="100%"
+        height="100%"
+        backgroundColor="rgba(0, 0, 0, 0)"
+        _hover={{
+          backgroundColor: "rgba(0, 0, 0, 0.3)",
+        }}
+        transition="0.2s ease"
+      />
+      <Box
+        className="labelBox"
         position="absolute"
         top="80%"
         left="50%"
         transform="translate(-50%, -50%)"
         width="230px"
-        display="flex"
+        display="none"
         justifyContent="center"
         alignItems="center"
         backgroundColor="rgba(24, 175, 211, 0.65)"
@@ -34,11 +53,11 @@ const OrthodonticCard = (props: OrthodonticCardProps) => {
         padding="10px"
       >
         <Text
-          color="#FFFFFF"
-          fontWeight="800"
-          lineHeight="25.3px"
-          width="100%"
-          alignItems="center"
+          color="white"
+          fontWeight="bold"
+          fontSize="xl"
+          textAlign="center"
+          p={4}
         >
           {props.label}
         </Text>

@@ -9,7 +9,7 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
   return (
     <Container
       maxW="100%"
-      height='auto'
+      maxH="100%"
       backgroundColor="#EEF8FF"
       fontWeight="700"
     >
@@ -35,6 +35,9 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
       {/* Images for the orthodontic services */}
       <Flex display="flex" justifyContent="center" marginTop="50px">
         <Grid
+          top="50%"
+          left="50%"
+          maxW="90%"
           templateColumns={{
             base: "repeat(1, 1fr)",
             sm: "repeat(1, 1fr)",
@@ -48,10 +51,11 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
               <Cards.OrthodonticCard
                 key={service.id}
                 index={service.id}
-                icon={service.icon}
+                src={service.imgpath}
                 label={service.label}
-                width={348}
+                width={450}
                 height={308}
+                borderWidth="0px"
               />
             );
           })}
