@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "label": "Dasboard",
+    "link": "/dashboard"
+  },
+  {
+    "id": 1,
+    "label": "Appointment",
+    "link": "/dashboard/appointments"
+  },
+  {
+    "id": 2,
+    "label": "Profile",
+    "link": "/dashboard/profile"
+  },
+  {
+    "id": 3,
+    "label": "Patients",
+    "link": "/dashboard"
+  },
+  {
+    "id": 4,
+    "label": "Notifications",
+    "link": "/dashboard"
+  }
+]

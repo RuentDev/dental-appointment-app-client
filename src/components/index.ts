@@ -11,6 +11,7 @@ import ContactUsSection from "./ContactUsSection";
 import Forms from "./Forms";
 import Inputs from './Inputs'
 import Process from "./Process";
+import Sidebar from "./Sidebar";
 
 const components = {
   Cards,
@@ -25,6 +26,7 @@ const components = {
   Overlay,
   ContactUsSection,
   Forms,
+  Sidebar,
   Process
 }
 

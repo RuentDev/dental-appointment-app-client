@@ -6,16 +6,17 @@ import React, { FC } from "react";
 import Link from "next/link";
 import navLinks from '@/data/navLinks.json'
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface NavbarProps {};
 
 const Navbar:FC<NavbarProps> = ({}) => {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const path = usePathname()
 
   return (
-    <nav style={{position: "fixed", width: "100%", height: "auto", zIndex: 999}}>
+    <nav style={{position: "fixed", width: "100%", height: "auto", zIndex: 999, display: path.includes("dashboard") ? "none" : ""}}>
       <Container 
         maxW="100%" 
         height={70} 

@@ -8,15 +8,15 @@ const Appointments = () => {
   return (
     <Center w="100%">
       <Container 
-        maxW="92%"
+        maxW="90%"
         bg="#18AFD3"
         border="0"
         borderRadius={0}
         position="relative" 
-        top="-50%"
+        top="-70%"
         p={{
           base: 5,
-          // lg: 20,
+          lg: 20,
         }}
       >
         <Flex 
