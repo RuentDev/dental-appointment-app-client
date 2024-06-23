@@ -13,6 +13,7 @@ import Sidebar from "./Sidebar";
 import ProcessSection from "./ProcessSection";
 import AdvertiseSection from "./AdvertiseSection";
 import Inputs from "./Inputs";
+import FooterSection from "./FooterSection";
 
 const components = {
   Cards,
@@ -29,7 +30,8 @@ const components = {
   Forms,
   Sidebar,
   ProcessSection,
-  AdvertiseSection
+  AdvertiseSection,
+  FooterSection
 }
 
 
