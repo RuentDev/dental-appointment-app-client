@@ -15,7 +15,6 @@ const HomePage = () => {
       <Components.ProcessSection/>
       <Components.BlogSection />
       <Components.ContactUsSection />
-      <Components.FooterSection/>
     </Stack>
   )
 }

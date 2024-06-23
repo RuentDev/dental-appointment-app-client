@@ -1,6 +1,6 @@
 "use client"
 import { Box, Button, Center, Container, Flex, Grid, GridItem, HStack, Spinner, Stack, Step, StepDescription, StepIcon, StepIndicator, StepNumber, Stepper, StepSeparator, StepStatus, StepTitle, Text, useSteps } from '@chakra-ui/react'
-import React, { useEffect } from 'react' 
+import React from 'react' 
 import Inputs from '../Inputs'
 import { useRouter } from 'next/navigation'
 
@@ -13,7 +13,9 @@ const steps = [
 ]
 
 
-const BookingForm = () => {
+interface BookingFormProps{}
+
+const BookingForm:React.FC<BookingFormProps> = () => {
 
   const router = useRouter()
 
@@ -21,16 +23,6 @@ const BookingForm = () => {
     index: 0,
     count: steps.length,
   })
-
-
-  useEffect(() => {
-    // Check if auth step and redirect if no session
-    if(activeStep === 3){  
-      setTimeout(() => {
-        router.push("/auth/signin")
-      }, 2000)
-    }
-  }, [activeStep])
 
   return (
     <Container pos="absolute" bottom={-20} h="70vh" maxWidth="90%" p={0} border={0} borderRadius={30} overflow="hidden" boxShadow='2xl' > 

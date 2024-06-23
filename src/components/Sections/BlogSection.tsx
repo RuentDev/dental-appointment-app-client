@@ -1,9 +1,11 @@
-import React from 'react'
-import Cards from './Cards'
 import { Container, Grid, GridItem, Stack, Text } from '@chakra-ui/react'
 import blogs from '@/data/blogs.json'
+import Cards from '../Cards'
+import React from 'react'
 
-const BlogSection = () => {
+interface BlogSectionProps{}
+
+const BlogSection:React.FC<BlogSectionProps> = ({}) => {
   return (
     <Container maxW="100%" h="auto" padding={20} bg="#eef8ff">
 

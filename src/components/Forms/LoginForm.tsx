@@ -1,10 +1,10 @@
 "use client"
 import {FormControl, Input, Text, Button, Flex, IconButton, useToast, FormErrorMessage } from '@chakra-ui/react'
+import { Field, Formik, FormikHelpers, FormikProps } from 'formik';
 import { FaGoogle, FaTwitter, FaFacebook } from "react-icons/fa6";
+import { loginAction } from '@/app/actions'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { loginAction } from '@/app/actions'
-import { Field, Formik, FormikHelpers, FormikProps } from 'formik';
 
 
 type Values = {
@@ -12,7 +12,9 @@ type Values = {
   password: string;
 };
 
-const LoginForm = () => {
+interface LoginFormProps{}
+
+const LoginForm:React.FC<LoginFormProps> = () => {
   const router = useRouter()
   const toast = useToast()
 

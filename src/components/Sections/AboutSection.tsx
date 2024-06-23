@@ -1,10 +1,12 @@
-"use client"
-import { Container, Flex, Stack, Text, Image, HStack, Icon, VStack } from '@chakra-ui/react'
+
+import { Container, Flex, Stack, Text, Image } from '@chakra-ui/react'
 import { IoBagAddOutline } from "react-icons/io5";
 import { BiHomeHeart } from "react-icons/bi";
 import React from 'react'
 
-const AboutSection = () => {
+interface AboutSection {};
+
+const AboutSection:React.FC<AboutSection> = ({}) => {
   return (
     <Container 
       p={20} 
@@ -79,3 +81,4 @@ const AboutSection = () => {
 }
 
 export default AboutSection
+

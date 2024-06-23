@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { Box, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
-import AppointmentProcessSectionCard from './AppointmentProcessSectionCard';
-import AppointmentProcessSectionCardButtonProps from './AppointmentProcessSectionCardButtonProps';
+import AppointmentProcessSectionCard from './AppointmentSectionCard';
+import AppointmentProcessSectionCardButtonProps from './AppointmentSectionCardButtonProps';
 import { FaRegCalendarCheck } from 'react-icons/fa';
 import { TbHeartbeat } from 'react-icons/tb';
 import { FaUserDoctor } from 'react-icons/fa6';
 
-interface AppointmentProcessSectionProps {}
+interface AppointmentSectionProps {}
 
-const Appointments: FC<AppointmentProcessSectionProps> = ({}) => {
+const AppointmentsSection: FC<AppointmentSectionProps> = ({}) => {
   return (
     <Box paddingX={{ base: 8, lg: 16 }} py={16}>
       <Grid templateColumns='repeat(3,1fr)' columnGap={4} rowGap={8}>
@@ -63,4 +63,4 @@ const Appointments: FC<AppointmentProcessSectionProps> = ({}) => {
   );
 };
 
-export default Appointments;
+export default AppointmentsSection;
