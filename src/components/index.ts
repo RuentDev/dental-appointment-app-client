@@ -1,8 +1,7 @@
 import ChakraUIProvider from './ChakraUIProvider';
 import AppointmentSection from './AppointmentSection';
 import Navbar from './Navbar';
-import Calendar from './Calendar';
-import Orthodontic from './OrthodonticSection';
+import OrthodonticSection from './OrthodonticSection';
 import LandingSection from './LandingSection';
 import AboutSection from './AboutSection';
 import BlogSection from './BlogSection';
@@ -10,22 +9,27 @@ import Cards from './Cards';
 import Overlay from './Overlay';
 import ContactUsSection from './ContactUsSection';
 import Forms from './Forms';
-import AppointmentProcessSection from './AppointmentProcessSection/AppoinmentProcessSection';
+import Sidebar from './Sidebar';
+import ProcessSection from './ProcessSection';
+import AdvertiseSection from './AdvertiseSection';
+import Inputs from './Inputs';
 
 const components = {
   Cards,
+  Inputs,
   ChakraUIProvider,
   LandingSection,
   AppointmentSection,
   Navbar,
-  Calendar,
-  Orthodontic,
+  OrthodonticSection,
   AboutSection,
   BlogSection,
   Overlay,
   ContactUsSection,
   Forms,
-  AppointmentProcessSection,
+  Sidebar,
+  ProcessSection,
+  AdvertiseSection,
 };
 
 export default components;

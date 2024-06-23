@@ -1,4 +1,5 @@
-import { Container } from '@chakra-ui/react'
+import { Container, Grid, GridItem } from '@chakra-ui/react'
+import Components from '@/components'
 import React from 'react'
 
 const DashboardLayout = ({children}: {children: React.ReactNode}) => {
@@ -8,8 +9,21 @@ const DashboardLayout = ({children}: {children: React.ReactNode}) => {
       maxH="100vh" 
       h="100vh"
       border={0}
+      padding={0}
     >
-      {children}
+      <Grid
+        w="100%"
+        h="100%"
+        templateRows="repeat(12, 1fr)"
+        templateColumns="repeat(12, 1fr)"
+      >
+        <GridItem colSpan={2} rowSpan={12}>
+          <Components.Sidebar />
+        </GridItem>
+        <GridItem  colSpan={10} rowSpan={12}>
+          {children}
+        </GridItem>
+      </Grid>
     </Container>
   )
 }
