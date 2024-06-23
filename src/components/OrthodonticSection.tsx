@@ -50,7 +50,6 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
             return (
               <Cards.OrthodonticCard
                 key={service.id}
-                index={service.id}
                 src={service.imgpath}
                 label={service.label}
                 width={450}

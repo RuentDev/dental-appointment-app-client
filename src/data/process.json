@@ -1,0 +1,18 @@
+[
+    {
+      "id": 0,
+      "label": "Make Appointment",
+      "imgpath": "/img/make-appointment.png"
+    },
+    {
+      "id": 1,
+      "label": "Select Expert Doctor",
+      "imgpath": "/img/select-expert-doctor.png"
+    },
+    {
+      "id": 2,
+      "label": "Confirm Consultation",
+      "imgpath": "/img/confirm-consultation.png"
+    }
+  ]
+  
