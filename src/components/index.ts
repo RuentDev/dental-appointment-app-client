@@ -9,9 +9,10 @@ import Cards from "./Cards";
 import Overlay from "./Overlay";
 import ContactUsSection from "./ContactUsSection";
 import Forms from "./Forms";
-import Inputs from './Inputs'
-import Process from "./Process";
 import Sidebar from "./Sidebar";
+import ProcessSection from "./ProcessSection";
+import AdvertiseSection from "./AdvertiseSection";
+import Inputs from "./Inputs";
 
 const components = {
   Cards,
@@ -27,7 +28,8 @@ const components = {
   ContactUsSection,
   Forms,
   Sidebar,
-  Process
+  ProcessSection,
+  AdvertiseSection
 }
 
 

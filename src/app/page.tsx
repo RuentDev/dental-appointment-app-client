@@ -9,7 +9,10 @@ const HomePage = () => {
       <Components.AppointmentSection />
       <Components.AboutSection />
       <Components.OrthodonticSection />
-      <Components.Process/>
+      <Components.ProcessSection/>
+      <Components.AdvertiseSection/>
+      <Components.OrthodonticSection />
+      <Components.ProcessSection/>
       <Components.BlogSection />
       <Components.ContactUsSection />
     </Stack>
