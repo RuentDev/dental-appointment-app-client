@@ -5,16 +5,16 @@ import { Stack } from '@chakra-ui/react'
 const HomePage = () => {
   return (
     <Stack w="100%" gap={0}>
-      <Components.LandingSection />
-      <Components.AppointmentSection />
-      <Components.AboutSection />
-      <Components.OrthodonticSection />
-      <Components.ProcessSection/>
-      <Components.AdvertiseSection/>
-      <Components.OrthodonticSection />
-      <Components.ProcessSection/>
-      <Components.BlogSection />
-      <Components.ContactUsSection />
+      <Components.Sections.LandingSection />
+      <Components.Sections.MakeAppointmentSection />
+      <Components.Sections.AboutSection />
+      <Components.Sections.OrthodonticSection />
+      <Components.Sections.ProcessSection/>
+      <Components.Sections.AdvertiseSection/>
+      <Components.Sections.OrthodonticSection />
+      <Components.Sections.AppointmentsSection/>
+      <Components.Sections.BlogSection />
+      <Components.Sections.ContactUsSection />
     </Stack>
   )
 }
