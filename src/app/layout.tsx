@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Components.ChakraUIProvider>
-          <Flex w="100%" h="100%" position="relative">
+          <Flex boxSize="100%" position="relative">
             <Components.Navbar />
             {children}
           </Flex>

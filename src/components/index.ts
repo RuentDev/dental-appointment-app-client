@@ -12,9 +12,11 @@ import ContactUsSection from "./ContactUsSection";
 import Forms from "./Forms";
 import ProcessSection from "./ProcessSection";
 import AdvertiseSection from "./AdvertiseSection";
+import Inputs from "./Inputs";
 
 const components = {
   Cards,
+  Inputs,
   ChakraUIProvider,
   LandingSection,
   AppointmentSection,
