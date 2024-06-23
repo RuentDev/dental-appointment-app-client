@@ -1,22 +1,16 @@
 import React, { FC } from 'react';
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Flex,
-  Grid,
-  GridItem,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import AppointmentProcessSectionCard from './AppointmentProcessSectionCard';
 import AppointmentProcessSectionCardButtonProps from './AppointmentProcessSectionCardButtonProps';
+import { FaRegCalendarCheck } from 'react-icons/fa';
+import { TbHeartbeat } from 'react-icons/tb';
+import { FaUserDoctor } from 'react-icons/fa6';
 
 interface AppointmentProcessSectionProps {}
 
 const Appointments: FC<AppointmentProcessSectionProps> = ({}) => {
   return (
-    <Box marginTop={200} paddingX={{ base: 8, lg: 16 }}>
+    <Box paddingX={{ base: 8, lg: 16 }} py={16}>
       <Grid templateColumns='repeat(3,1fr)' columnGap={4} rowGap={8}>
         <GridItem colSpan={{ base: 3, lg: 1 }}>
           <Stack spacing={8} textAlign={{ base: 'center', lg: 'left' }}>
@@ -44,15 +38,15 @@ const Appointments: FC<AppointmentProcessSectionProps> = ({}) => {
             gap={16}
             justifyItems={{ base: 'center', lg: 'stretch' }}>
             <AppointmentProcessSectionCard
-              icon='Logo Here'
+              icon={<FaRegCalendarCheck size={40} color='#18AFD3' />}
               title='Make Appointment'
             />
             <AppointmentProcessSectionCard
-              icon='Logo Here'
+              icon={<FaUserDoctor size={40} color='#18AFD3' />}
               title='Select Expert Doctor'
             />
             <AppointmentProcessSectionCard
-              icon='Logo Here'
+              icon={<TbHeartbeat size={40} color='#18AFD3' />}
               title='Confirm Consultation'
             />
           </Grid>
