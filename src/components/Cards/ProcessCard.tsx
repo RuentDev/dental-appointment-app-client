@@ -13,8 +13,8 @@ interface ProcessCardProps {
 const ProcessCard = (props: ProcessCardProps) => {
   return (
     <Container
-      width={{ sm: "257px", md: "361px", lg: "229px" }}
-      height={{ sm: "142px", md: "197px", lg: "254.52px" }}
+      width={{ base: "257px", sm: "257px", md: "361px", lg: "229px" }}
+      height={{ base: "257px", sm: "142px", md: "197px", lg: "254.52px" }}
       borderColor="#18AFD3"
       borderRadius="25px"
       borderWidth="2px"
@@ -25,12 +25,12 @@ const ProcessCard = (props: ProcessCardProps) => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        gap={{sm:5,lg:10}}
+        gap={{ base: 10,sm: 5, lg: 10 }}
         p={10}
       >
         <Box
-          width={{ sm: "25px", md: "63px", lg: "63px" }}
-          height={{ sm: "25px", md: "63px", lg: "63px" }}
+          width={{ base: "35px", sm: "25px", md: "63px", lg: "63px" }}
+          height={{ base: "35px", sm: "25px", md: "63px", lg: "63px" }}
           position="relative"
         >
           <Image
@@ -40,7 +40,12 @@ const ProcessCard = (props: ProcessCardProps) => {
             objectFit="contain"
           />
         </Box>
-        <Text fontSize={{sm:16, md:18}} textAlign="center" color="black" fontWeight={600}>
+        <Text
+          fontSize={{ sm: 16, md: 18 }}
+          textAlign="center"
+          color="black"
+          fontWeight={600}
+        >
           {props.label}
         </Text>
       </Box>

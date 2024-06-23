@@ -14,30 +14,42 @@ import {
 import Cards from "./Cards";
 import processData from "@/data/process.json";
 
-const Process = () => {
+interface ProcessSectionProps {}
+
+const ProcessSection = () => {
   return (
     <Container maxW="100%" maxH="100%" backgroundColor="#fff" border={0} p={20}>
       <Flex
         display="flex"
         justifyContent="space-between"
-        flexDirection={{ sm: "column", md: "column", lg: "row" }}
+        flexDirection={{
+          base: "column",
+          sm: "column",
+          md: "column",
+          lg: "row",
+        }}
         p={20}
       >
         <Flex
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          alignItems={{ sm: "center", md: "center", lg: "start" }}
+          alignItems={{
+            base: "column",
+            sm: "center",
+            md: "center",
+            lg: "start",
+          }}
           ml={{ lg: 10 }}
+          textAlign={{
+            base: "center",
+            sm: "center",
+            md: "center",
+            lg: "start",
+          }}
         >
           <Box width={{ md: "55%", lg: "60%" }}>
-            <Text
-              width="100%"
-              textAlign={{ sm: "center", md: "center", lg: "start" }}
-              color="#024B6C"
-              fontWeight={700}
-              fontSize={32}
-            >
+            <Text width="100%" color="#024B6C" fontWeight={700} fontSize={32}>
               How to get an Appointment from us?
             </Text>
           </Box>
@@ -47,7 +59,6 @@ const Process = () => {
               lineHeight="24px"
               fontWeight={400}
               fontSize={16}
-              textAlign={{ sm: "center", md: "center", lg: "start" }}
             >
               Our Online Scheduling lets your patients schedule fully booked
               appointments directly into your practice management system
@@ -62,7 +73,12 @@ const Process = () => {
         <Flex display="flex" justifyContent="center" alignItems="center" p={20}>
           <Grid
             display="flex"
-            flexDirection={{ sm: "column", md: "column", lg: "row" }}
+            flexDirection={{
+              base: "column",
+              sm: "column",
+              md: "column",
+              lg: "row",
+            }}
             w="100%"
             alignItems="center"
             top="50%"
@@ -98,4 +114,4 @@ const Process = () => {
   );
 };
 
-export default Process;
+export default ProcessSection;
