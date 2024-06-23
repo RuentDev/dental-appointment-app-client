@@ -1,6 +1,5 @@
 "use server"
 import { cookies } from "next/headers"
-import { redirect } from 'next/navigation'
 
 interface Response {
   statusText?: string;
@@ -11,7 +10,7 @@ export const loginAction = async (formData: any): Promise<Response> => {
   try {
     const {email, password } = formData
 
-    const loginRes = await fetch("http://localhost:5000/users/login", {
+    const loginRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -44,7 +43,7 @@ export const signupAction = async (formData: any): Promise<Response> => {
   try {
     const {name, email, role, phone, password} = formData
     
-    const signupRes = await fetch("http://localhost:5000/users/signup", {
+    const signupRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/signup`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
