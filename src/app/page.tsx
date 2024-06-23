@@ -12,7 +12,7 @@ const HomePage = () => {
       <Components.ProcessSection/>
       <Components.AdvertiseSection/>
       <Components.OrthodonticSection />
-      <Components.Process/>
+      <Components.ProcessSection/>
       <Components.BlogSection />
       <Components.ContactUsSection />
     </Stack>

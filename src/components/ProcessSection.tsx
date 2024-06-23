@@ -48,7 +48,7 @@ const ProcessSection = () => {
             lg: "start",
           }}
         >
-          <Box width={{ md: "55%", lg: "60%" }}>
+          <Box width={{ base: "100%", sm: "100%", md: "80%", lg: "60%" }}>
             <Text width="100%" color="#024B6C" fontWeight={700} fontSize={32}>
               How to get an Appointment from us?
             </Text>
