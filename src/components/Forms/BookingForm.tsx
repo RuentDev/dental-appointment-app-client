@@ -36,7 +36,7 @@ const BookingForm = () => {
     <Container pos="absolute" bottom={10} h="70vh" maxWidth="90%" p={0} border={0}> 
         { <Flex width="100%" height="100%" borderRadius={30} overflow="hidden">
             <Grid 
-              w="70%"
+              w="65%"
               h="100%"
               gap={5}
               templateColumns="repeat(2, 1fr)"
@@ -85,7 +85,7 @@ const BookingForm = () => {
                 </HStack>
               </GridItem>
             </Grid>  
-            <Stack w="30%" bg="url('/img/booking-img.png') no-repeat center center" bgSize="cover"></Stack>
+            <Stack w="35%" bg="url('/img/booking-img.png') no-repeat center center" bgSize="cover"></Stack>
         </Flex> }
     </Container>
   )
