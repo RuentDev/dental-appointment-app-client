@@ -11,7 +11,7 @@ import {
   Square,
   Text,
 } from "@chakra-ui/react";
-import Cards from "./Cards";
+import Cards from "../Cards";
 import processData from "@/data/process.json";
 
 interface ProcessSectionProps {}

@@ -19,12 +19,13 @@ type Values = {
   confirmPassword: string;
 };
 
-const SignupForm = ({role}: SignupFormProps) => {
+const SignupForm:React.FC<SignupFormProps> = ({role}) => {
+
   const router = useRouter()
   const toast = useToast()
 
-  const handleOnFormSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
-    const { statusText, error } = await signupAction(values)
+  const handleOnFormSubmit = async (values: Values, _: FormikHelpers<Values>) => {
+    const { error } = await signupAction(values)
 
     if(typeof error === "string"){
       toast({
@@ -59,72 +60,71 @@ const SignupForm = ({role}: SignupFormProps) => {
         password: "", 
         confirmPassword: "", 
       }}
-
       onSubmit={handleOnFormSubmit}
     >
       {(props: FormikProps<Values>) => (
-      <form onSubmit={props.handleSubmit} autoComplete='new-form'>
-        <Flex w={400} flexDirection="column" alignItems="center" justifyContent="center" gap={5}>
-          <Input type='text' name='role' value={role} display="none"/>
-          <FormControl isInvalid={!!props.errors.name && props.touched.name}>
-            <Field
-              as={Input}
-              name='name'
-              type='text'
-              placeholder='Your Name'
-              autoComplete='new-name'
-              validate={handleRequiedFieldValidation}
-            />
-          </FormControl>
-          <FormControl isInvalid={!!props.errors.phone && props.touched.phone}>
-            <Field
-              as={Input}
-              name='phone'
-              type='tel'
-              placeholder='Your Phone'
-              autoComplete='new-phone'
-              validate={handleRequiedFieldValidation}
-            />
-          </FormControl>
-          <FormControl isInvalid={!!props.errors.email && props.touched.email}>
-            <Field
-              as={Input}
-              name='email'
-              type='email'
-              placeholder='Your Email'
-              autoComplete='new-email'
-              validate={handleRequiedFieldValidation}
-            />
-          </FormControl>
-          <FormControl isInvalid={!!props.errors.password && props.touched.password}>
-            <Field 
-              as={Input}
-              name='password'
-              type='password'
-              placeholder='Your Password'
-              validate={handleRequiedFieldValidation}
-            />
-          </FormControl>
-          <FormControl isInvalid={!!props.errors.confirmPassword && props.touched.confirmPassword}>
-            <Field 
-              as={Input}
-              type='password'
-              name='confirmPassword'
-              placeholder='Confirm Password'
-              autoComplete='new-confirm-pass'
-              validate={handleRequiedFieldValidation}
-            />
-          </FormControl>
-          <Button isLoading={props.isSubmitting} type='submit' borderRadius={10} maxW="100%" w="100%">Signup</Button>
-          <Button variant="unstyled" onClick={() => router.push("/auth/signin")}>Login</Button>
-          <Text>Or</Text>
-          <Flex gap={5}>
-            <FaGoogle />
-            <FaFacebook />
-            <FaTwitter />
+        <form onSubmit={props.handleSubmit} autoComplete='new-form'>
+          <Flex w={400} flexDirection="column" alignItems="center" justifyContent="center" gap={5}>
+            <Input type='text' name='role' value={role} display="none"/>
+            <FormControl isInvalid={!!props.errors.name && props.touched.name}>
+              <Field
+                as={Input}
+                name='name'
+                type='text'
+                placeholder='Your Name'
+                autoComplete='new-name'
+                validate={handleRequiedFieldValidation}
+              />
+            </FormControl>
+            <FormControl isInvalid={!!props.errors.phone && props.touched.phone}>
+              <Field
+                as={Input}
+                name='phone'
+                type='tel'
+                placeholder='Your Phone'
+                autoComplete='new-phone'
+                validate={handleRequiedFieldValidation}
+              />
+            </FormControl>
+            <FormControl isInvalid={!!props.errors.email && props.touched.email}>
+              <Field
+                as={Input}
+                name='email'
+                type='email'
+                placeholder='Your Email'
+                autoComplete='new-email'
+                validate={handleRequiedFieldValidation}
+              />
+            </FormControl>
+            <FormControl isInvalid={!!props.errors.password && props.touched.password}>
+              <Field 
+                as={Input}
+                name='password'
+                type='password'
+                placeholder='Your Password'
+                validate={handleRequiedFieldValidation}
+              />
+            </FormControl>
+            <FormControl isInvalid={!!props.errors.confirmPassword && props.touched.confirmPassword}>
+              <Field 
+                as={Input}
+                type='password'
+                name='confirmPassword'
+                placeholder='Confirm Password'
+                autoComplete='new-confirm-pass'
+                validate={handleRequiedFieldValidation}
+              />
+            </FormControl>
+            <Button isLoading={props.isSubmitting} type='submit' borderRadius={10} maxW="100%" w="100%">Signup</Button>
+            <Button variant="unstyled" onClick={() => router.push("/auth/signin")}>Login</Button>
+            <Text>Or</Text>
+            <Flex gap={5}>
+              <FaGoogle />
+              <FaFacebook />
+              <FaTwitter />
+            </Flex>
           </Flex>
-        </Flex>
-      </form>
+        </form>
       )}
     </Formik>
   )

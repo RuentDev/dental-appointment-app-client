@@ -3,7 +3,7 @@ import { Container, Flex, Stack, Input, Select, Button, Text, Image, Center } fr
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
-const Appointments = () => {
+const MakeAppointmentSection = () => {
   const router = useRouter()
   return (
     <Center w="100%">
@@ -117,4 +117,4 @@ const Appointments = () => {
   )
 }
 
-export default Appointments
+export default MakeAppointmentSection

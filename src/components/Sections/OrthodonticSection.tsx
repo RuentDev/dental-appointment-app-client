@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Container, Flex, Grid, Text } from "@chakra-ui/react";
-import orthodonticServicesData from "../data/orthodonticServices.json";
-import Cards from "./Cards";
+import orthodonticServicesData from "../../data/orthodonticServices.json";
+import Cards from "../Cards";
 
 interface OrthodonticProps {}
 
