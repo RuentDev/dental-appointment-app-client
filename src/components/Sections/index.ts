@@ -7,6 +7,7 @@ import LandingSection from "./LandingSection";
 import MakeAppointmentSection from "./MakeAppointmentSection";
 import OrthodonticSection from "./OrthodonticSection";
 import ProcessSection from "./ProcessSection";
+import FooterSection from "./FooterSection";
 
 
 const sections = {
@@ -18,7 +19,8 @@ const sections = {
   ProcessSection,
   AppointmentsSection,
   AdvertiseSection,
-  MakeAppointmentSection
+  MakeAppointmentSection,
+  FooterSection
 }
 
 export default sections
