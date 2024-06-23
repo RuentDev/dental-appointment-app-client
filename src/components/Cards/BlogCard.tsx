@@ -17,6 +17,7 @@ const BlogCard = ({title, thumbnail, date, link}: BlogCardProps) => {
         <Box position="relative">
           <Overlay />
           <Image 
+            alt={`blog-card-thumnail-${title}`}
             w="100%"
             src={thumbnail}
           />

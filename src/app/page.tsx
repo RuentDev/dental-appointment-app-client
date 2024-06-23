@@ -1,6 +1,6 @@
 import React from 'react'
 import Components from '@/components'
-import { Spacer, Stack } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 
 const HomePage = () => {
   return (
@@ -8,7 +8,8 @@ const HomePage = () => {
       <Components.LandingSection />
       <Components.AppointmentSection />
       <Components.AboutSection />
-      <Components.Orthodontic />
+      <Components.OrthodonticSection />
+      <Components.Process/>
       <Components.BlogSection />
       <Components.ContactUsSection />
     </Stack>

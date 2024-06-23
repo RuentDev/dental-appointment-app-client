@@ -7,7 +7,7 @@ const ContactUsSection = () => {
     <Container maxW="100%" height="auto" border={0} bg="white" p={0}>
       <Flex w="100%" flexDirection={{ base: "column", lg: "row"}} justifyContent="center">
         <Stack w="100%">
-          <Image src='/img/contact-us-image.png' />
+          <Image src='/img/contact-us-image.png' alt='contact-us-section-image' />
         </Stack>
         <Stack w="100%" px={10}>
           <form action="">

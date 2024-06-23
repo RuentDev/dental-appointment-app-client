@@ -93,6 +93,7 @@ const Appointments = () => {
           </Container>
 
           <Image 
+            alt='slime'
             src='/smile-image.png'
             position={{
               base: "absolute",

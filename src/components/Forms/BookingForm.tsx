@@ -1,5 +1,5 @@
 "use client"
-import { Box, Button, Center, Container, Flex, Grid, GridItem, HStack, Image, Spinner, Stack, Step, StepDescription, StepIcon, StepIndicator, StepNumber, Stepper, StepSeparator, StepStatus, StepTitle, Text, useSteps } from '@chakra-ui/react'
+import { Box, Button, Center, Container, Flex, Grid, GridItem, HStack, Spinner, Stack, Step, StepDescription, StepIcon, StepIndicator, StepNumber, Stepper, StepSeparator, StepStatus, StepTitle, Text, useSteps } from '@chakra-ui/react'
 import React, { useEffect } from 'react' 
 import Inputs from '../Inputs'
 import { useRouter } from 'next/navigation'

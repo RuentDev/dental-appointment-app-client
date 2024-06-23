@@ -3,7 +3,6 @@ import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 interface OrthodonticCardProps {
-  index: number;
   src: string;
   label: string;
   width: number;
