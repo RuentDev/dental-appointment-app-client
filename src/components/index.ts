@@ -10,7 +10,7 @@ import Cards from "./Cards";
 import Overlay from "./Overlay";
 import ContactUsSection from "./ContactUsSection";
 import Forms from "./Forms";
-
+import Process from "./Process";
 
 
 const components = {
@@ -26,6 +26,7 @@ const components = {
   Overlay,
   ContactUsSection,
   Forms,
+  Process
 }
 
 
