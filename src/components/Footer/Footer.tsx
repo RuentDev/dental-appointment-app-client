@@ -35,6 +35,7 @@ const Footer = (props: FooterSectionProps) => {
           alignItems="center"
           height="504px"
           backgroundColor="#18AFD3"
+          paddingLeft={20}
           paddingTop={{ sm: "400px", md: 0, lg: 0 }}
         >
           <Grid
