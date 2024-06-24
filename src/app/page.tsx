@@ -15,7 +15,6 @@ const HomePage = () => {
       <Components.Sections.AppointmentsSection/>
       <Components.Sections.BlogSection />
       <Components.Sections.ContactUsSection />
-      <Components.Sections.FooterSection/>
     </Stack>
   )
 }
