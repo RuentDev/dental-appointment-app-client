@@ -9,6 +9,7 @@ const ContainerStyle = {
   // style object for base or default style
   baseStyle: {
     borderWidth: 1,
+    borderRadius: 10,
     padding: 1,
     margin: 0
   },

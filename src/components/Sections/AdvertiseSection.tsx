@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface AdvertiseSectionProps {}
 
-const AdvertiseSection = () => {
+const AdvertiseSection: React.FC<AdvertiseSectionProps> = ({}) => {
   return (
     <Container maxW="100%" maxH="100%" border={0}>
       <Box

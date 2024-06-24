@@ -1,85 +1,91 @@
-import { Avatar, Box, Flex, Grid, GridItem, HStack, Text } from "@chakra-ui/react";
+'use client'
+import { Box, Container, Flex, Grid } from "@chakra-ui/react";
 import React from "react";
 import TableHeading from "./TableHeading";
+import AppointmentTableItem, { AppointmentProps } from "./AppointmentTableItem";
+import { useRouter } from "next/navigation";
 
-interface AppointmentTableProps{};
+
+const tableData: AppointmentProps[] = [
+  {
+    id: "0",
+    image: "/",
+    dentistName: "Dr. John Doe",
+    specialization: "Cardiology",
+    date: "May 15, 2022",
+    time: "10:00 AM",
+    duration: "2 hours",
+    status: "CANCELLED"
+  },
+  {
+    id: "1",
+    image: "/",
+    dentistName: "Dr. John Smith",
+    specialization: "Dentist",
+    date: "May 15, 2022",
+    time: "10:00 AM",
+    duration: "2 hours",
+    status: "UPCOMMING"
+  },
+  {
+    id: "2",
+    image: "/",
+    dentistName: "Dr. Ana Carter",
+    specialization: "Dentist",
+    date: "May 18, 2022",
+    time: "10:00 AM",
+    duration: "2 hours",
+    status: "UPCOMMING"
+  },
+  {
+    id: "3",
+    image: "/",
+    dentistName: "Dr. Harry Potter",
+    specialization: "Dentist",
+    date: "May 19, 2022",
+    time: "10:00 AM",
+    duration: "2 hours",
+    status: "UPCOMMING"
+  },
+]
+
+interface AppointmentTableProps{
+  data?: []
+  tableHeight: string | number
+};
+
 
 const AppointmentTable: React.FC<AppointmentTableProps> = ({}) => {
+
+  const router = useRouter()
+  
+  const handleItemClick = (id: string) => {
+    router.push(`/dashboard/appointments/${id}`)
+  }
+
   return (
-    <Box bg="white" w="full" h="full" boxShadow="md" borderRadius={10} overflow='hidden'>
+    <Container maxW="100%" w="100%" pos="relative">
       <TableHeading />
-      <Box w="full" h="full" borderRadius={10} p={2}  >
-        <Box w="full" h="full" borderRadius={10} overflow="hidden" bg="gray.200" p={2}>
-          <Grid w="full" h="full" templateColumns="repeat(6, 1fr)" templateRows="repeat(12, 1fr)" gap="1px">
-            <GridItem colSpan={6} rowSpan={1}>
-              <Flex alignItems="center" h="full" justifyContent="space-between" px={1}>
-                <Flex w="full" h="full" alignItems="center" gap={2}>
-                  <Avatar size="sm"/>
-                  <Text w="full" textAlign="start">James Carter</Text>
-                </Flex>
-                <Text w="full" textAlign="center">Dentist</Text>
-                <Text w="full" textAlign="center">11/12/24</Text>
-                <Text w="full" textAlign="center">03:30</Text>
-                <Text w="full" textAlign="center">30 minutes</Text>
-                <Text w="full" textAlign="end">UPCOMMING</Text>
-              </Flex>
-            </GridItem>
-            <GridItem colSpan={6} rowSpan={1}>
-              <Flex alignItems="center" h="full" justifyContent="space-between" px={1}>
-                <Flex w="full" h="full" alignItems="center" gap={2}>
-                  <Avatar size="sm"/>
-                  <Text w="full" textAlign="start">Ana Sturgis</Text>
-                </Flex>
-                <Text w="full" textAlign="center">Dentist</Text>
-                <Text w="full" textAlign="center">11/12/24</Text>
-                <Text w="full" textAlign="center">03:30</Text>
-                <Text w="full" textAlign="center">30 minutes</Text>
-                <Text w="full" textAlign="end">UPCOMMING</Text>
-              </Flex>
-            </GridItem>
-            <GridItem colSpan={6} rowSpan={1}>
-              <Flex alignItems="center" h="full" justifyContent="space-between" px={1}>
-                <Flex w="full" h="full" alignItems="center" gap={2}>
-                  <Avatar size="sm"/>
-                  <Text w="full" textAlign="start">John Smith</Text>
-                </Flex>
-                <Text w="full" textAlign="center">Dentist</Text>
-                <Text w="full" textAlign="center">11/12/24</Text>
-                <Text w="full" textAlign="center">03:30</Text>
-                <Text w="full" textAlign="center">30 minutes</Text>
-                <Text w="full" textAlign="end">UPCOMMING</Text>
-              </Flex>
-            </GridItem>
-            <GridItem colSpan={6} rowSpan={1}>
-              <Flex alignItems="center" h="full" justifyContent="space-between" px={1}>
-                <Flex w="full" h="full" alignItems="center" gap={2}>
-                  <Avatar size="sm"/>
-                  <Text w="full" textAlign="start">Jane Wong</Text>
-                </Flex>
-                <Text w="full" textAlign="center">Dentist</Text>
-                <Text w="full" textAlign="center">11/12/24</Text>
-                <Text w="full" textAlign="center">03:30</Text>
-                <Text w="full" textAlign="center">30 minutes</Text>
-                <Text w="full" textAlign="end">UPCOMMING</Text>
-              </Flex>
-            </GridItem>
-            <GridItem colSpan={6} rowSpan={1}>
-              <Flex alignItems="center" h="full" justifyContent="space-between" px={1}>
-                <Flex w="full" h="full" alignItems="center" gap={2}>
-                  <Avatar size="sm"/>
-                  <Text w="full" textAlign="start">Lee Martinez</Text>
-                </Flex>
-                <Text w="full" textAlign="center">Dentist</Text>
-                <Text w="full" textAlign="center">11/12/24</Text>
-                <Text w="full" textAlign="center">03:30</Text>
-                <Text w="full" textAlign="center">30 minutes</Text>
-                <Text w="full" textAlign="end">UPCOMMING</Text>
-              </Flex>
-            </GridItem>
+      <Flex w="100%" h="90%" p={1} overflow="hidden">
+        <Box w="full" h="full">
+          <Grid 
+            w="full"
+            maxH="85vh"
+            gap="1px"
+            templateColumns="repeat(6, 1fr)" 
+            overflow="auto"
+          >
+            {tableData.map((appointment) => (
+              <AppointmentTableItem 
+                key={tableData[0].id}
+                appointment={appointment}
+                onClick={handleItemClick}
+              />
+            ))}
           </Grid>
         </Box>
-      </Box>
-    </Box>
+      </Flex>
+    </Container>
   )
 };
 

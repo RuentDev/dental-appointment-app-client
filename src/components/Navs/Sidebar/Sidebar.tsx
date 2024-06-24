@@ -1,61 +1,52 @@
 'use client'
 import React from 'react'
-import {
-  Box,
-  useColorModeValue,
-  useDisclosure,
-} from '@chakra-ui/react'
-import {
-  FiHome,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiCalendar,
-  FiUser,
-  FiUsers,
-  FiBell
-} from 'react-icons/fi'
 import { LinkItemProps } from './types'
 import SidebarContent from './SidebarContent'
+import { Box, useDisclosure } from '@chakra-ui/react'
+import { FiHome, FiCalendar, FiUser, FiUsers, FiBell } from 'react-icons/fi'
 
 const linkItems: Array<LinkItemProps> = [
   { 
     icon: FiHome,
     name: 'Dasboard', 
-    link: "/dashboard"
+    link: "/dashboard",
+    isActive: false,
   },
   { 
     icon: FiCalendar,
     name: 'Appointment', 
-    link: "/dashboard/appointments"
+    link: "/dashboard/appointments",
+    isActive: false,
   },
   { 
     icon: FiUser,
     name: 'Profile', 
-    link: "/dashboard/profile"
+    link: "/dashboard/profile",
+    isActive: false,
   },
   { 
     icon: FiUsers,
     name: 'Patients', 
-    link: "/dashboard/patients"
+    link: "/dashboard/patients",
+    isActive: false,
   },
   { 
     icon: FiBell,
     name: 'Notifications', 
-    link: "/dashboard/notifications"
+    link: "/dashboard/notifications",
+    isActive: false,
   },
 ]
 
 interface SidebarProps{}
 
 const Sidebar:React.FC<SidebarProps> = ({}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  // const { isOpen, onOpen, onClose } = useDisclosure()
 
   // bg={useColorModeValue('gray.100', 'gray.900')}
   return (
     <Box h="full" >
       <SidebarContent 
-        onClose={() => onClose}
         links={linkItems} 
         display={{ 
           base: 'none', 

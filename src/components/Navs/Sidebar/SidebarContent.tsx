@@ -2,16 +2,19 @@ import { BoxProps, Box, useColorModeValue, Flex, CloseButton, Text } from "@chak
 import SidebarItem from "./SidebarItem"
 import { LinkItemProps } from "./types"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 export interface SidebarContentProps extends BoxProps {
-  onClose: () => void
-  links?: LinkItemProps[]
+  links: LinkItemProps[]
 }
 
-const SidebarContent: React.FC<SidebarContentProps> = ({ onClose, links,...rest }) => {
+const SidebarContent: React.FC<SidebarContentProps> = ({ links, ...rest }) => {
   const router = useRouter()
+  const [linksState, setLinksState] = useState(links)
+
 
   const handleSidebarItemClick = (link: LinkItemProps) => {
+    setLinksState((prev) => prev.map((item) => ({...item, isActive: item.name === link.name})))
     router.push(link.link)
   }
 
@@ -29,10 +32,15 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ onClose, links,...rest 
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
           Logo
         </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
+        {/* <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} /> */}
       </Flex>
-      {links && links.map((link) => (
-        <SidebarItem key={link.name} icon={link.icon} onClick={() => handleSidebarItemClick(link)}>
+      {linksState && linksState.map((link, index) => (
+        <SidebarItem 
+          key={`sidebar-item-${index}`} 
+          icon={link.icon} 
+          isActive={link.isActive}
+          onClick={() => handleSidebarItemClick(link)}
+        >
           {link.name}
         </SidebarItem>
       ))}

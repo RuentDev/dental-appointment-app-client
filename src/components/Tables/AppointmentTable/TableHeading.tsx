@@ -33,10 +33,17 @@ const tableHeadingColumns = [
 const TableHeading:FC<TableHeadingProps> = ({}) => {
 
   return (
-    <Box minH="50px" h="100px"  w="full">
-      <Flex w="full" h='full' alignItems="center" justifyContent="space-between" px={5}>
+    <Box minH="50px" h="10%"  w="full">
+      <Flex w="full" h='full' alignItems="center" justifyContent="space-between" px={10}>
         {tableHeadingColumns.map((column, index) => (
-          <Text key={column.id} as='strong' textAlign={index === 0 ? "start" : (tableHeadingColumns.length - 1) === index ? "end" :  "center"} w="full">{column.title}</Text>
+          <Text 
+            key={column.id} 
+            as='strong' 
+            w="full"
+            textAlign={index === 0 ? "start" : (tableHeadingColumns.length - 1) === index ? "end" :  "center"} 
+          >
+            {column.title}
+          </Text>
         ))}
       </Flex>
     </Box>
