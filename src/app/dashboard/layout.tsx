@@ -20,7 +20,7 @@ const DashboardLayout = ({children}: {children: React.ReactNode}) => {
         <GridItem colSpan={2} rowSpan={12}>
           <Components.Sidebar />
         </GridItem>
-        <GridItem  colSpan={10} rowSpan={12}>
+        <GridItem w="100%" h="100%" colSpan={10} rowSpan={12}>
           {children}
         </GridItem>
       </Grid>

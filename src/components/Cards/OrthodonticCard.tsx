@@ -14,9 +14,10 @@ const OrthodonticCard = (props: OrthodonticCardProps) => {
   return (
     <Container
       position="relative"
-      borderWidth={props.borderWidth}
       overflow="hidden"
       _hover={{ '.labelBox': { display: 'flex' } }}
+      border={0}
+      padding={0}
     >
       <Image
         alt="services"

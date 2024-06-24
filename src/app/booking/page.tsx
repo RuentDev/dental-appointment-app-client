@@ -1,11 +1,11 @@
-import { Center, Stack, VStack } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react'
 import React from 'react'
 import Components from '@/components'
 
 const BookingPage = async () => {
   return (
     <VStack w="100%" position="relative">
-      <Components.LandingSection />
+      <Components.Sections.LandingSection />
       <Components.Forms.BookingForm />
     </VStack>
   )

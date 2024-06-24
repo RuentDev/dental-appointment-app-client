@@ -11,7 +11,7 @@ const Overlay:React.FC<OverlayProps> = () => {
       transition="ease-in-out 200ms" 
       cursor="pointer" 
       _hover={{ 
-        backgroundColor:"teal.200", 
+        backgroundColor:"black", 
         opacity: 0.3
       }}  
     />

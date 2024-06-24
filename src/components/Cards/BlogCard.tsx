@@ -12,7 +12,7 @@ interface BlogCardProps {
 
 const BlogCard = ({title, thumbnail, date, link}: BlogCardProps) => {
   return (
-    <Container maxW="100%" h="100%" bg="white" padding={0}> 
+    <Container maxW="100%" h="100%" bg="white" padding={0} border={0} shadow="lg"> 
       <Stack position="relative" justifyContent="center" gap={5}>
         <Box position="relative">
           <Overlay />
