@@ -6,7 +6,7 @@ interface AdvertiseSectionProps {}
 
 const AdvertiseSection = () => {
   return (
-    <Container maxW="100%" maxH="100%" border={0}>
+    <Container maxW="100%" maxH="100%" border={0} p={0}>
       <Box
         width="100%"
         height={{ base: "194px", sm: "194px", md: "266px", lg: "380px" }}

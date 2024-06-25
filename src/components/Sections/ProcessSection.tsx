@@ -83,7 +83,7 @@ const ProcessSection = () => {
             alignItems="center"
             top="50%"
             left="50%"
-            maxW="90%"
+            maxW="80%"
             templateColumns={{
               base: "repeat(1, 1fr)",
               sm: "repeat(1, 1fr)",
