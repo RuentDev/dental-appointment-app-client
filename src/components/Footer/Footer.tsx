@@ -24,7 +24,7 @@ const Footer = (props: FooterSectionProps) => {
       <Container
         position="absolute"
         maxW="100%"
-        minH={{ sm: "1039px", md: "auto", lg: "auto" }}
+        minH={{ base: "1039px", sm: "1039px", md: "auto", lg: "auto" }}
         border={0}
         backgroundColor="#18AFD3"
         p={0}
@@ -36,10 +36,11 @@ const Footer = (props: FooterSectionProps) => {
           height="504px"
           backgroundColor="#18AFD3"
           paddingLeft={20}
-          paddingTop={{ sm: "400px", md: 0, lg: 0 }}
+          paddingTop={{ base: "500px", sm: "400px", md: 0, lg: 0 }}
         >
           <Grid
             paddingBottom={{ lg: "100px" }}
+            paddingLeft={{base:'0px'}}
             templateColumns={{
               base: "repeat(1, 1fr)",
               sm: "repeat(1, 1fr)",
@@ -51,11 +52,16 @@ const Footer = (props: FooterSectionProps) => {
             <Box position="relative">
               <Box
                 position="absolute"
-                top={{ base: "25px", md: "1px", lg: "-30px" }}
-                left={{ sm: "20%", md: "15%", lg: "30%" }}
+                top={{ base: "-55px", sm: "25px", md: "1px", lg: "-30px" }}
+                left={{ base: "20%", sm: "20%", md: "15%", lg: "30%" }}
                 transform="translateX(-50%)"
-                width={{ sm: "193px", md: "151.53px", lg: "263px" }}
-                height={{ sm: "47px", md: "44px", lg: "78px" }}
+                width={{
+                  base: "193px",
+                  sm: "193px",
+                  md: "151.53px",
+                  lg: "263px",
+                }}
+                height={{ base: "47px", sm: "47px", md: "44px", lg: "78px" }}
               >
                 <Image
                   alt="denteria"
@@ -114,7 +120,7 @@ const Footer = (props: FooterSectionProps) => {
             </Box>
 
             {/* quick links content */}
-            <Box mt={{ sm: 10, md: 3 }}>
+            <Box mt={{ base: 5, sm: 10, md: 3 }}>
               <Text
                 textColor={{ sm: "#024B6C", md: "white", lg: "white" }}
                 fontSize={20}
@@ -137,7 +143,7 @@ const Footer = (props: FooterSectionProps) => {
             </Box>
 
             {/* services content */}
-            <Box marginTop={{ sm: 5 }}>
+            <Box marginTop={{ base: 5, sm: 5 }}>
               <Text
                 textColor={{ sm: "#024B6C", md: "white", lg: "white" }}
                 fontSize={20}
@@ -159,7 +165,7 @@ const Footer = (props: FooterSectionProps) => {
             </Box>
 
             {/* contact us content */}
-            <Box marginTop={{ sm: 5 }}>
+            <Box marginTop={{ base: 5, sm: 5 }}>
               <Text
                 textColor={{ sm: "#024B6C", md: "white", lg: "white" }}
                 fontSize={20}
@@ -201,8 +207,13 @@ const Footer = (props: FooterSectionProps) => {
           alignItems="center"
           height="103px"
           backgroundColor="#024B6C"
-          position={{ sm: "absolute", md: "relative", lg: "relative" }}
-          bottom={{ sm: 0, md: "auto", lg: "auto" }}
+          position={{
+            base: "absolute",
+            sm: "absolute",
+            md: "relative",
+            lg: "relative",
+          }}
+          bottom={{ base: 0, sm: 0, md: "auto", lg: "auto" }}
           width="100%"
         >
           <Text color="#18AFD3" fontWeight={700} mr={2}>
