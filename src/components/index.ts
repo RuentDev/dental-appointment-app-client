@@ -7,6 +7,7 @@ import Inputs from "./Inputs";
 import Cards from "./Cards";
 import Tables from './Tables'
 import Sections from './Sections'
+import Footer from "./Footer/Footer";
 
 const components = {
   ChakraUIProvider,
@@ -17,7 +18,8 @@ const components = {
   Forms,
   Sidebar,
   Tables,
-  Sections
+  Sections,
+  Footer
 }
 
 
