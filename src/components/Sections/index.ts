@@ -18,7 +18,7 @@ const sections = {
   ProcessSection,
   AppointmentsSection,
   AdvertiseSection,
-  MakeAppointmentSection
+  MakeAppointmentSection,
 }
 
 export default sections

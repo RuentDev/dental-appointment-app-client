@@ -28,6 +28,7 @@ export default function RootLayout({
           <Flex boxSize="100%" position="relative">
             <Components.Navbar />
             {children}
+            <Components.Footer/>
           </Flex>
         </Components.ChakraUIProvider>
       </body>
