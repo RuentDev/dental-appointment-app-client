@@ -40,6 +40,7 @@ const Footer = (props: FooterSectionProps) => {
         >
           <Grid
             paddingBottom={{ lg: "100px" }}
+            paddingLeft={{base:'0px'}}
             templateColumns={{
               base: "repeat(1, 1fr)",
               sm: "repeat(1, 1fr)",
