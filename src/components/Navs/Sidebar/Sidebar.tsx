@@ -14,7 +14,7 @@ const linkItems: Array<LinkItemProps> = [
   },
   { 
     icon: FiCalendar,
-    name: 'Appointment', 
+    name: 'Appointments', 
     link: "/dashboard/appointments",
     isActive: false,
   },

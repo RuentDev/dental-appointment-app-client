@@ -12,7 +12,6 @@ const HomePage = () => {
       <Components.Sections.ProcessSection/>
       <Components.Sections.AdvertiseSection/>
       <Components.Sections.OrthodonticSection />
-      <Components.Sections.AppointmentsSection/>
       <Components.Sections.BlogSection />
       <Components.Sections.ContactUsSection />
     </Stack>
