@@ -9,7 +9,7 @@ const HomePage = () => {
       <Components.Sections.MakeAppointmentSection />
       <Components.Sections.AboutSection />
       <Components.Sections.OrthodonticSection />
-      <Components.Sections.ProcessSection/>
+      {/* <Components.Sections.ProcessSection/> */}
       <Components.Sections.AdvertiseSection/>
       <Components.Sections.OrthodonticSection />
       <Components.Sections.AppointmentsSection/>
