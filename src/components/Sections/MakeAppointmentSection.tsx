@@ -6,18 +6,19 @@ import React from 'react'
 const MakeAppointmentSection = () => {
   const router = useRouter()
   return (
-    <Center w="100%">
+    <Center w="100%" h="30vh" position="relative" >
       <Container 
         maxW="90%"
         bg="#18AFD3"
-        border="0"
+        border={0}
         borderRadius={0}
-        position="relative" 
+        position="absolute" 
         top="-70%"
         p={{
           base: 5,
           lg: 20,
         }}
+        boxShadow="2xl"
       >
         <Flex 
           gap={5} 

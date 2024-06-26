@@ -1,10 +1,9 @@
 import React from "react";
-import { Container, Box, Flex, Text, Button } from "@chakra-ui/react";
-import Image from "next/image";
+import { Container, Box, Flex, Text, Button, Image } from "@chakra-ui/react";
 
 interface AdvertiseSectionProps {}
 
-const AdvertiseSection = () => {
+const AdvertiseSection: React.FC<AdvertiseSectionProps> = ({}) => {
   return (
     <Container maxW="100%" maxH="100%" border={0} p={0}>
       <Box
@@ -25,8 +24,7 @@ const AdvertiseSection = () => {
             <Image
               alt="doctor"
               src={"/img/doctor.png"}
-              layout="fill"
-              objectFit="contain"
+
             />
           </Box>
         </Flex>

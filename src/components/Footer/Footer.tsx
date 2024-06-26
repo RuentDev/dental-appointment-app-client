@@ -64,10 +64,15 @@ const Footer = (props: FooterSectionProps) => {
                 height={{ base: "47px", sm: "47px", md: "44px", lg: "78px" }}
               >
                 <Image
+                  priority
                   alt="denteria"
                   src="/img/denteria-logo.png"
-                  layout="fill"
-                  objectFit="contain"
+                  width={150}
+                  height={100}
+                  style={{
+                    width: "auto",
+                    height: "auto"
+                  }}
                 />
               </Box>
               <Flex
@@ -175,12 +180,12 @@ const Footer = (props: FooterSectionProps) => {
               </Text>
               {contactsData.slice(0, 3).map((contact) => (
                 <Flex key={contact.id} mt={2}>
-                  <Image
+                  {/* <Image
                     alt="contact"
                     src={contact.imgpath}
                     width={25}
                     height={25}
-                  />
+                  /> */}
                   <Text textColor="white" ml={3} fontWeight={600} fontSize={16}>
                     {contact.label}
                   </Text>
@@ -189,12 +194,12 @@ const Footer = (props: FooterSectionProps) => {
               <Flex gap={5} mt={5}>
                 {contactsData.slice(3, 6).map((contact) => (
                   <Flex cursor="pointer" key={contact.id}>
-                    <Image
+                    {/* <Image
                       alt="contact"
                       src={contact.imgpath}
                       width={25}
                       height={25}
-                    />
+                    /> */}
                   </Flex>
                 ))}
               </Flex>

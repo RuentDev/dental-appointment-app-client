@@ -3,83 +3,131 @@ import { Box, Button, Center, Container, Flex, Grid, GridItem, HStack, Spinner, 
 import React from 'react' 
 import Inputs from '../Inputs'
 import { useRouter } from 'next/navigation'
-
+import Cards from '../Cards'
+import { Formik, FormikProps } from 'formik'
+import { createNewAppointment } from '@/app/actions'
 
 const steps = [
   { title: 'Select Date', description: '' },
+  { title: 'Select Time', description: '' },
   { title: 'Select Service', description: '' },
-  { title: 'Personal Info', description: '' },
-  { title: 'Auth', description: '' },
+  { title: 'Personal Info', description: '' }
 ]
 
 
-interface BookingFormProps{}
+interface BookingFormProps{
+  showSideImage?: boolean
+}
 
-const BookingForm:React.FC<BookingFormProps> = () => {
+type Values = {
+  startDate: string;
+  endDate: string;
+  doctorId: string;
+  description: string;
+
+};
+
+const BookingForm:React.FC<BookingFormProps> = ({showSideImage}) => {
 
   const router = useRouter()
 
-  const { activeStep, goToNext, goToPrevious } = useSteps({
+  const { activeStep, goToNext, goToPrevious, setActiveStep} = useSteps({
     index: 0,
     count: steps.length,
   })
 
+  const handleNextBtnClick = (e: any) => {
+    goToNext()
+  }
+
+  const handleOnFormSubmit = (values: Values) => {
+    console.log("click")
+    console.log(values)
+
+    // createNewAppointment
+    goToNext()
+  }
+
+  const handleSelectDate = (args: any) => {
+    console.log(args)
+  }
+  
+
   return (
-    <Container pos="absolute" bottom={-20} h="70vh" maxWidth="90%" p={0} border={0} borderRadius={30} overflow="hidden" boxShadow='2xl' > 
-      <Flex width="100%" height="100%" >
-        <Grid 
-          w="65%"
-          h="100%"
-          gap={5}
-          templateColumns="repeat(2, 1fr)"
-          templateRows="repeat(6, 1fr)"
-          bg="white"
-          padding={10}
-        >
-          <GridItem boxSize="100%" colSpan={2} rowSpan={1}>
-            <Center boxSize="100%">
-              <Stepper index={activeStep} w="100%">
-                {steps.map((step, index) => (
-                  <Step key={index}>
-                    <StepIndicator>
-                      <StepStatus
-                        complete={<StepIcon />}
-                        incomplete={<StepNumber />}
-                        active={<StepNumber />}
-                      />
-                    </StepIndicator>
+    <Formik
+      initialValues={{ 
+        startDate: "",
+        endDate: "", 
+        doctorId: "",
+        description: "",
+      }}
+      onSubmit={handleOnFormSubmit}
+    >
+      {(props: FormikProps<Values>) => (
+          <form style={{width: "100%", height: "100%"}} onSubmit={props.handleSubmit}>
+            <Container h="100%" maxW="full" p={10} border={0}> 
+              <Stack>
+                <Text as="strong" fontSize="2xl">Book Your Appointment</Text>
+              </Stack>
+              <Grid 
+                w={{
+                  lg: "full"
+                }}
+                h="100%"
+                gap={5}
+                templateColumns="repeat(2, 1fr)"
+                templateRows="repeat(7, 1fr)"
+                bg="white"
+              >
+                <GridItem boxSize="100%" colSpan={2} rowSpan={1}>
+                  <Center boxSize="100%">
+                    <Stepper index={activeStep} w="100%">
+                      {steps.map((step, index) => (
+                        <Step key={index}>
+                          <StepIndicator>
+                            <StepStatus
+                              complete={<StepIcon />}
+                              incomplete={<StepNumber />}
+                              active={<StepNumber />}
+                            />
+                          </StepIndicator>
 
-                    <Box flexShrink='0'>
-                      <StepTitle>{step.title}</StepTitle>
-                      <StepDescription>{step.description}</StepDescription>
-                    </Box>
+                          <Box flexShrink='0'>
+                            <StepTitle>{step.title}</StepTitle>
+                            <StepDescription>{step.description}</StepDescription>
+                          </Box>
 
-                    <StepSeparator />
-                  </Step>
-                ))}
-              </Stepper>
-            </Center>
-          </GridItem>
+                          <StepSeparator />
+                        </Step>
+                      ))}
+                    </Stepper>
+                  </Center>
+                </GridItem>
 
-          <GridItem boxSize="100%" colSpan={2} rowSpan={4}>
-            <Center boxSize="100%" alignItems="start">
-              {activeStep === 0 &&(<Inputs.CalendarInput excludedDays={[]} />)}
-              {activeStep === 1 && (<Inputs.ServicesInput />)}
-              {activeStep === 2 && (<Inputs.PersonalDetailsInput />)}
-              {activeStep === 3 && (<Flex flexDirection="column" alignItems="center" gap={5}><Text as="h2" align="center" >Authenticating</Text> <Spinner size="xl"/></Flex>)}
-            </Center>
-          </GridItem>
+                <GridItem boxSize="100%" colSpan={2} rowSpan={4}>
+                  <Center boxSize="100%" alignItems="start" pos="relative">
+                    {activeStep === 0 && ( <Inputs.AppointmentScheduleInput /> )}
+                      
+                    {activeStep === 1 && ( <Inputs.ServicesInput /> )}
 
-          <GridItem boxSize="100%" colSpan={2} rowSpan={1}>
-            <HStack boxSize="100%" justifyContent={activeStep ? "space-between" : "end"} >
-              {activeStep > 0 && (<Button onClick={goToPrevious}>Previous</Button>)}
-              <Button onClick={goToNext}>Next</Button>
-            </HStack>
-          </GridItem>
-        </Grid>  
-        <Stack w="35%" bg="url('/img/booking-img.png') no-repeat center center" bgSize="cover"></Stack>
-      </Flex>
-    </Container>
+                    {activeStep === 2 && ( <Inputs.PersonalDetailsInput /> )}
+                    
+                  </Center>
+                </GridItem>
+
+                <GridItem boxSize="100%" colSpan={2} rowSpan={1}>
+                  <HStack boxSize="100%" justifyContent={activeStep ? "space-between" : "end"} >
+                    {activeStep > 0 && (<Button onClick={goToPrevious}>Previous</Button>)}
+                    {activeStep === 2 && (<Button type='submit'>Book Now</Button>)}
+                    {activeStep !== 2 && (<Button onClick={handleNextBtnClick}>Next</Button>)}
+                  </HStack>
+                </GridItem>
+              </Grid> 
+            </Container>
+          </form>
+      )}
+
+    </Formik>
   )
 }
 

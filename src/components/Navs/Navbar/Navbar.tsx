@@ -7,6 +7,7 @@ import Link from "next/link";
 import navLinks from '@/data/navLinks.json'
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { useCookies } from  'next-client-cookies'
 
 interface NavbarProps {};
 
@@ -14,13 +15,24 @@ const Navbar:FC<NavbarProps> = ({}) => {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const path = usePathname()
+  const  cookie = useCookies()
+
+
+  const handleSigninBtnClick = () => {
+    if(cookie.get("dental-app-login")) {
+      router.push("/dashboard")
+    }else{
+      router.push("/auth/signin")
+    }
+  }
 
   return (
     <nav style={{position: "fixed", width: "100%", height: "auto", zIndex: 999, display: path.includes("dashboard") ? "none" : ""}}>
       <Container 
         maxW="100%" 
         height={70} 
-        border={0} 
+        border={0}
+        borderRadius={0} 
         px={20} 
         backgroundColor="#18AFD3" 
         display={{
@@ -41,7 +53,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
             sm: "row"
           }} 
         >
-          <Container border={0}>
+          <Container border={0} borderRadius={0}>
             <Flex justifyContent="start" alignItems="center" gap={10}>
               <Box>
                 <Flex justifyContent="space-evenly" alignItems="center" gap={1}>
@@ -57,7 +69,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
               </Box>
             </Flex>
           </Container>
-          <Container border={0}>
+          <Container border={0} borderRadius={0}>
             <Box>
               <Flex alignItems="center" justifyContent={{base: "center", md: "end"}} gap={1}>
                 <Icon as={FaRegCalendar} fontSize="medium" color="white"/>
@@ -68,7 +80,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
         </Flex>
       </Container>
       
-      <Container maxW="100%" height={100} px={20} display={{base: "none", md: "block"}} border={0} bg="#ffffff">
+      <Container maxW="100%" height={100} px={20} display={{base: "none", md: "block"}} border={0} bg="#ffffff" borderRadius={0}>
         <Grid templateColumns='1fr 3fr 1fr' gap={6} height="100%">
           <GridItem w='100%' maxH="100%">
             <Flex w="100%" height="100%" alignItems="center" justifyContent="start">
@@ -82,6 +94,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
                     width: "auto",
                     height: "auto"
                   }}
+                  priority
                 />
               </Link>
             </Flex>
@@ -99,8 +112,8 @@ const Navbar:FC<NavbarProps> = ({}) => {
           </GridItem>
           <GridItem w='100%' maxH="100%">
             <Flex height="100%" width="100%" alignItems="center" justifyContent="end">
-              <Button onClick={() => router.push("/auth/signin")}>
-                Signin
+              <Button onClick={handleSigninBtnClick}>
+                {cookie.get("dental-app-login") ? "Dashboard" : "Signin"}
               </Button>
             </Flex>
           </GridItem>

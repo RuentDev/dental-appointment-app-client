@@ -11,6 +11,7 @@ const LandingSection = () => {
         lg: "85vh"
       }} 
       border={0} 
+      borderRadius={0}
       padding={0} 
       margin={0} 
       backgroundImage="landing-section-bg-img.jpg"

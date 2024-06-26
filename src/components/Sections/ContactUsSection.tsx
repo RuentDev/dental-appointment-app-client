@@ -46,11 +46,11 @@ const ContactUsSection = () => {
                 </GridItem>
                 <GridItem w="100%" colSpan={{base: 1, md: 2}}>
                   <Textarea
-                      _placeholder={{color: "#18AFD3"}}
-                      placeholder='Your message'
-                      size='sm'
-                      minH={300} bg="#EFF5F7" border={0}
-                    />
+                    _placeholder={{color: "#18AFD3"}}
+                    placeholder='Your message'
+                    size='sm'
+                    minH={300} bg="#EFF5F7" border={0}
+                  />
                 </GridItem>
               </Grid>
               <Button mt={5}>Send Message</Button>

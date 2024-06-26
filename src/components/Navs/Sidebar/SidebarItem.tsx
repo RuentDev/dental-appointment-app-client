@@ -5,15 +5,15 @@ export interface SidebarItemProps extends FlexProps {
   icon: IconType
   children: React.ReactNode
   onClick: () => void
+  isActive: boolean,
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ icon, children, ...rest }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ icon, isActive, children, ...rest }) => {
   return (
     <Box
       as="a"
-      href="#"
-      style={{ textDecoration: 'none' }}
-      _focus={{ boxShadow: 'none' }}>
+      _focus={{ boxShadow: 'none' }}
+    >
       <Flex
         align="center"
         p="4"
@@ -21,6 +21,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon, children, ...rest }) =>
         borderRadius="lg"
         role="group"
         cursor="pointer"
+        bg={isActive ? '#18AFD3' : ''}
+        color={isActive ? 'white' : ''}
         _hover={{
           bg: '#18AFD3',
           color: 'white',

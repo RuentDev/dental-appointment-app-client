@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Container, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Container, Text, Image } from "@chakra-ui/react";
 
 interface ProcessCardProps {
   src: string;
@@ -36,7 +35,6 @@ const ProcessCard = (props: ProcessCardProps) => {
           <Image
             alt="process img"
             src={props.src}
-            layout="fill"
             objectFit="contain"
           />
         </Box>

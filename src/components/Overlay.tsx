@@ -10,8 +10,9 @@ const Overlay:React.FC<OverlayProps> = () => {
       pos="absolute" 
       transition="ease-in-out 200ms" 
       cursor="pointer" 
+      borderRadius={0}
       _hover={{ 
-        backgroundColor:"teal.200", 
+        backgroundColor:"black", 
         opacity: 0.3
       }}  
     />
