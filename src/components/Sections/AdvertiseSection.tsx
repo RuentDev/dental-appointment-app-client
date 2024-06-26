@@ -10,23 +10,19 @@ const AdvertiseSection: React.FC<AdvertiseSectionProps> = ({}) => {
         width="100%"
         height={{ base: "194px", sm: "194px", md: "266px", lg: "380px" }}
         backgroundColor="#18AFD3"
+        marginTop={20}
       >
         <Flex
           position="absolute"
-          mt={{base:"-85px",sm:"-190px",md:"-190px",lg:"-190px"}}
+          mt={{ base: "-85px", sm: "-190px", md: "-190px", lg: "-200px" }}
           ml={{ sm: "0%", md: "10%", lg: "10%" }}
         >
-          <Box
+          <Image
+            alt="doctor"
+            src={"/img/doctor.png"}
             width={{ base: "241px", sm: "341px", md: "410.82px", lg: "487px" }}
             height={{ base: "280px", sm: "380px", md: "455px", lg: "578px" }}
-            position="relative"
-          >
-            <Image
-              alt="doctor"
-              src={"/img/doctor.png"}
-
-            />
-          </Box>
+          />
         </Flex>
         <Flex
           height="100%"
