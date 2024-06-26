@@ -25,8 +25,7 @@ const DashboardPage = () => {
                   alt={'doctor'}
                   pos="absolute"
                   bottom={-5}
-                  w="65%"
-                  right={100}     
+                  w="60%"
                 />
               </Container>
           </Flex>

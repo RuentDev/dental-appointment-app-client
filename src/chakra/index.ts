@@ -43,8 +43,8 @@ const ButtonStyle = {
   // style object for base or default style
   baseStyle: {
     padding: 2,
-    minWidth: "150px",
-    maxWidth: "150px",
+    minWidth: "180px",
+    maxWidth: "230px",
     borderTopRightRadius: 15,
     borderTopLeftRadius: 0,
     borderBottomRightRadius: 0,

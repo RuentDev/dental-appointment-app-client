@@ -1,6 +1,6 @@
 "use server"
 import { cookies } from "next/headers"
-
+import { AppointmentDetails } from '@/utils/types'
 interface Response {
   statusText?: string;
   error?: string | unknown
@@ -49,6 +49,47 @@ export const signupAction = async (formData: any): Promise<Response> => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({name, role, phone, email, password})
+    })
+
+    const {error, statusText} = await signupRes.json()
+
+    if(error){
+      console.log(error)
+      return {
+        error: error
+      }
+    } 
+    
+    return {
+      statusText: statusText
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
+}
+
+export const createNewAppointment = async (formData: AppointmentDetails) => {
+  try {
+    const {startDate, endDate, doctorId, patientId, service, age, phone, email, description} = formData
+    
+    const signupRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/appointment/new-appointment`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        startDate,
+        endDate,
+        doctorId,
+        patientId,
+        service,
+        age,
+        phone,
+        email,
+        description
+      })
     })
 
     const {error, statusText} = await signupRes.json()

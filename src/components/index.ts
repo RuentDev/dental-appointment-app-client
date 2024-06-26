@@ -8,6 +8,7 @@ import Cards from "./Cards";
 import Tables from './Tables'
 import Sections from './Sections'
 import Footer from "./Footer/Footer";
+import CustomCalendar from "./CustomCalendar/CustomCalendar";
 
 const components = {
   ChakraUIProvider,
@@ -19,7 +20,8 @@ const components = {
   Sidebar,
   Tables,
   Sections,
-  Footer
+  Footer,
+  CustomCalendar
 }
 
 

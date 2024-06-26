@@ -7,6 +7,7 @@ import Link from "next/link";
 import navLinks from '@/data/navLinks.json'
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { useCookies } from  'next-client-cookies'
 
 interface NavbarProps {};
 
@@ -14,6 +15,16 @@ const Navbar:FC<NavbarProps> = ({}) => {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const path = usePathname()
+  const  cookie = useCookies()
+
+
+  const handleSigninBtnClick = () => {
+    if(cookie.get("dental-app-login")) {
+      router.push("/dashboard")
+    }else{
+      router.push("/auth/signin")
+    }
+  }
 
   return (
     <nav style={{position: "fixed", width: "100%", height: "auto", zIndex: 999, display: path.includes("dashboard") ? "none" : ""}}>
@@ -83,6 +94,7 @@ const Navbar:FC<NavbarProps> = ({}) => {
                     width: "auto",
                     height: "auto"
                   }}
+                  priority
                 />
               </Link>
             </Flex>
@@ -100,8 +112,8 @@ const Navbar:FC<NavbarProps> = ({}) => {
           </GridItem>
           <GridItem w='100%' maxH="100%">
             <Flex height="100%" width="100%" alignItems="center" justifyContent="end">
-              <Button onClick={() => router.push("/auth/signin")}>
-                Signin
+              <Button onClick={handleSigninBtnClick}>
+                {cookie.get("dental-app-login") ? "Dashboard" : "Signin"}
               </Button>
             </Flex>
           </GridItem>

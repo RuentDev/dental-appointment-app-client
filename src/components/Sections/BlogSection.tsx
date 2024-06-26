@@ -7,7 +7,7 @@ interface BlogSectionProps{}
 
 const BlogSection:React.FC<BlogSectionProps> = ({}) => {
   return (
-    <Container maxW="100%" h="auto" padding={20} bg="#eef8ff">
+    <Container maxW="100%" h="auto" padding={20} bg="#eef8ff" border={0}>
       <Flex alignItems="center" flexDirection="column" gap={10}>
         <Stack gap={1} my={10}>
           <Text as="p" color='#E9490A' fontWeight={700} textAlign="center">READ OUR BLOG</Text>

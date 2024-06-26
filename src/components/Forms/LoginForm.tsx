@@ -31,8 +31,6 @@ const LoginForm:React.FC<LoginFormProps> = () => {
       return
     }
 
-    console.log(statusText)
-
     router.push("/dashboard")
   }
 

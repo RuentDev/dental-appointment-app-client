@@ -1,5 +1,5 @@
 'use client'
-import { Box, Container, Flex, Grid, ContainerProps, IconButton } from "@chakra-ui/react";
+import { Box, Container, Flex, Grid, ContainerProps, HStack, Button } from "@chakra-ui/react";
 import React from "react";
 import TableHeading from "./TableHeading";
 import AppointmentTableItem, { AppointmentProps } from "./AppointmentTableItem";
@@ -108,9 +108,12 @@ const AppointmentTable: React.FC<AppointmentTableProps> = ({props}) => {
   }
 
   return (
-    <Container maxW="100%" w="100%" pos="relative" py={5} {...props}>
+    <Container maxW="100%" w="100%" pos="relative" p={5} {...props}>
+      <HStack>
+        <Button onClick={handleNewItemClick} leftIcon={<IoIosAddCircle/>} borderRadius={10}>New</Button>
+      </HStack>
       <TableHeading />
-      <Flex w="100%" h="90%" p={1} overflow="hidden">
+      <Flex w="100%" h="80%" p={1} overflow="hidden">
         <Box w="full" h="full">
           <Grid 
             w="full"
@@ -129,22 +132,6 @@ const AppointmentTable: React.FC<AppointmentTableProps> = ({props}) => {
           </Grid>
         </Box>
       </Flex>
-      <IconButton 
-        bottom={5}
-        right={5} 
-        pos="absolute" 
-        minW={50}
-        w={50}
-        h={50}
-        minH={50}
-        isRound
-        bg="gray.400"
-        icon={<IoIosAddCircle />}   
-        aria-label="add-appointment"
-        title="New Appointment"
-        _hover={{borderRadius:"50%", bg: "gray.500"}}
-        onClick={handleNewItemClick}
-      />
     </Container>
   )
 };

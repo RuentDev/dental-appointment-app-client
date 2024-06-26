@@ -25,7 +25,7 @@ const SignupForm:React.FC<SignupFormProps> = ({role}) => {
   const toast = useToast()
 
   const handleOnFormSubmit = async (values: Values, _: FormikHelpers<Values>) => {
-    const { error } = await signupAction(values)
+    const { error, statusText } = await signupAction(values)
 
     if(typeof error === "string"){
       toast({
@@ -37,7 +37,15 @@ const SignupForm:React.FC<SignupFormProps> = ({role}) => {
       return
     }
 
-    router.push("/auth/login")
+    if(statusText === "OK"){
+      toast({
+        status: "success",
+        title: "Signup successful",
+        position: "bottom"
+      })
+      router.push("/auth/signin")
+    }
+
   }
 
   const handleRequiedFieldValidation = (value: string) => {

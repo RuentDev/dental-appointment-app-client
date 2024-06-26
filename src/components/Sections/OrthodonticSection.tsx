@@ -9,17 +9,19 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
   return (
     <Container
       maxW="100%"
-      maxH="100%"
+      h="90vh"
       backgroundColor="#EEF8FF"
       fontWeight="700"
+      border={0}
+      borderRadius={0}
+      color="#024B6C"
     >
       <Flex
         display="flex"
         flexDirection="column"
         alignItems="center"
-        color="#024B6C"
         width="100%"
-        marginTop="40px"
+        h="full"
       >
         <Text lineHeight="49.03px" fontSize="36px" textAlign="center">
           Orthodontic Services
@@ -32,34 +34,28 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
         </Text>
       </Flex>
 
-      {/* Images for the orthodontic services */}
-      <Flex display="flex" justifyContent="center" marginTop="50px">
-        <Grid
-          top="50%"
-          left="50%"
-          maxW="90%"
-          templateColumns={{
-            base: "repeat(1, 1fr)",
-            sm: "repeat(1, 1fr)",
-            md: "repeat(2, 1fr)",
-            lg: "repeat(3, 1fr)",
-          }}
-          gap={20}
-        >
-          {orthodonticServicesData.map((service) => {
-            return (
-              <Cards.OrthodonticCard
-                key={service.id}
-                src={service.imgpath}
-                label={service.label}
-                width={450}
-                height={308}
-                borderWidth="0px"
-              />
-            );
-          })}
-        </Grid>
-      </Flex>
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          sm: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+        }}
+        border="1px solid red"
+      >
+        {/* {orthodonticServicesData.map((service) => {
+          return (
+            <Cards.OrthodonticCard
+              key={service.id}
+              src={service.imgpath}
+              label={service.label}
+              width={450}
+              height={308}
+              borderWidth="0px"
+            />
+          );
+        })} */}
+      </Grid>
     </Container>
   );
 };
