@@ -1,7 +1,14 @@
 "use client";
 import React from "react";
-import { Box, Button, Container, Flex, Grid, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Grid,
+  Text,
+  Image,
+} from "@chakra-ui/react";
 import navLinksData from "@/data/navLinks.json";
 import orthodonticServiceData from "@/data/orthodonticServices.json";
 import contactsData from "@/data/contacts.json";
@@ -36,11 +43,11 @@ const Footer = (props: FooterSectionProps) => {
           height="504px"
           backgroundColor="#18AFD3"
           paddingLeft={20}
-          paddingTop={{ base: "500px", sm: "400px", md: 0, lg: 0 }}
+          paddingTop={{ base: "500px", sm: "400px", md: 10, lg: 0 }}
         >
           <Grid
             paddingBottom={{ lg: "100px" }}
-            paddingLeft={{base:'0px'}}
+            paddingLeft={{ base: "0px" }}
             templateColumns={{
               base: "repeat(1, 1fr)",
               sm: "repeat(1, 1fr)",
@@ -50,34 +57,15 @@ const Footer = (props: FooterSectionProps) => {
           >
             {/* logo & working hours content */}
             <Box position="relative">
-              <Box
-                position="absolute"
-                top={{ base: "-55px", sm: "25px", md: "1px", lg: "-30px" }}
-                left={{ base: "20%", sm: "20%", md: "15%", lg: "30%" }}
-                transform="translateX(-50%)"
-                width={{
-                  base: "193px",
-                  sm: "193px",
-                  md: "151.53px",
-                  lg: "263px",
-                }}
-                height={{ base: "47px", sm: "47px", md: "44px", lg: "78px" }}
-              >
-                <Image
-                  priority
-                  alt="denteria"
-                  src="/img/denteria-logo.png"
-                  width={150}
-                  height={100}
-                  style={{
-                    width: "auto",
-                    height: "auto"
-                  }}
-                />
-              </Box>
+              <Image
+                alt="denteria"
+                src="/img/denteria-logo.png"
+                width={{ base:"193px", sm:"193px", md: "151.53px", lg: "263px" }}
+                height={{  base:"47px",sm:"47px", md: "44px", lg: "78px" }}
+              />
               <Flex
-                mt={{ sm: "100px", md: 16, lg: 16 }}
-                mr="1%"
+                mt={{ base: 5, sm: 5, md: 5, lg: 3 }}
+                marginLeft={{ lg: 5 }}
                 flexDirection="column"
               >
                 <Flex>
@@ -121,7 +109,7 @@ const Footer = (props: FooterSectionProps) => {
                   </Text>
                 </Flex>
               </Flex>
-              <Button mt={10}>Book Appointment</Button>
+              <Button mt={{ md: 5, lg: 10 }}>Book Appointment</Button>
             </Box>
 
             {/* quick links content */}
@@ -136,7 +124,6 @@ const Footer = (props: FooterSectionProps) => {
               {navLinksData.slice(1, 6).map((link) => (
                 <Text
                   key={link.label}
-                  cursor="pointer"
                   mt={2}
                   textColor="white"
                   fontSize={16}
@@ -180,12 +167,12 @@ const Footer = (props: FooterSectionProps) => {
               </Text>
               {contactsData.slice(0, 3).map((contact) => (
                 <Flex key={contact.id} mt={2}>
-                  {/* <Image
+                  <Image
                     alt="contact"
                     src={contact.imgpath}
-                    width={25}
-                    height={25}
-                  /> */}
+                    width={{ md: "20px", lg: "24.04" }}
+                    height={{ md: "20px", lg: "23" }}
+                  />
                   <Text textColor="white" ml={3} fontWeight={600} fontSize={16}>
                     {contact.label}
                   </Text>
@@ -194,12 +181,12 @@ const Footer = (props: FooterSectionProps) => {
               <Flex gap={5} mt={5}>
                 {contactsData.slice(3, 6).map((contact) => (
                   <Flex cursor="pointer" key={contact.id}>
-                    {/* <Image
+                    <Image
                       alt="contact"
                       src={contact.imgpath}
-                      width={25}
-                      height={25}
-                    /> */}
+                      width={{ md: "20px", lg: "24.04" }}
+                      height={{ md: "20px", lg: "23" }}
+                    />
                   </Flex>
                 ))}
               </Flex>
