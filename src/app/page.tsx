@@ -9,7 +9,6 @@ const HomePage = () => {
       <Components.Sections.MakeAppointmentSection />
       <Components.Sections.AboutSection />
       <Components.Sections.AppointmentsSection/>
-      <Components.Sections.ProcessSection/>
       <Components.Sections.AdvertiseSection/>
       <Components.Sections.BlogSection />
       <Components.Sections.ContactUsSection />
