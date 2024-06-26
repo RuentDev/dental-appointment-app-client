@@ -70,9 +70,7 @@ const BookingForm:React.FC<BookingFormProps> = ({showSideImage}) => {
                 <Text as="strong" fontSize="2xl">Book Your Appointment</Text>
               </Stack>
               <Grid 
-                w={{
-                  lg: "full"
-                }}
+                w={{ lg: "full" }}
                 h="100%"
                 gap={5}
                 templateColumns="repeat(2, 1fr)"
@@ -106,12 +104,11 @@ const BookingForm:React.FC<BookingFormProps> = ({showSideImage}) => {
 
                 <GridItem boxSize="100%" colSpan={2} rowSpan={4}>
                   <Center boxSize="100%" alignItems="start" pos="relative">
-                    {activeStep === 0 && ( <Inputs.AppointmentScheduleInput /> )}
-                      
+                    {activeStep === 0 && ( <Inputs.CalendarInput /> )}
                     {activeStep === 1 && ( <Inputs.ServicesInput /> )}
-
-                    {activeStep === 2 && ( <Inputs.PersonalDetailsInput /> )}
-                    
+                      
+                    {activeStep === 3 && ( <Inputs.ServicesInput /> )}
+                    {activeStep === 4 && ( <Inputs.PersonalDetailsInput /> )}
                   </Center>
                 </GridItem>
 

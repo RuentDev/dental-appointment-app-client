@@ -98,12 +98,7 @@ const CustomCalendar:FC<CustomCalendarProps> = (props) => {
         const isToday = dayDate.toDateString() === today.toDateString();
         const isWeekend = dayDate.getDay() === 0 || dayDate.getDay() === 6;
 
-        return {
-          date: i + 1,
-          month,
-          year,
-          isAvailable: checkDateAvailability(i + 1),
-        };
+        return { date: i + 1,  month,  year, isAvailable: checkDateAvailability(i + 1)};
       }),
     ];
 
