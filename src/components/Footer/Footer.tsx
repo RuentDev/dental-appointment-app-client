@@ -121,9 +121,9 @@ const Footer = (props: FooterSectionProps) => {
               >
                 Quick Links
               </Text>
-              {navLinksData.slice(1, 6).map((link) => (
+              {navLinksData.slice(1, 6).map((link, index) => (
                 <Text
-                  key={link.label}
+                  key={link.label + index}
                   mt={2}
                   textColor="white"
                   fontSize={16}

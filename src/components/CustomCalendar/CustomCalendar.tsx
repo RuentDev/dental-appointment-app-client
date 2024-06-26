@@ -1,15 +1,16 @@
-import { Flex, Grid, GridItem, VStack, Text, FormControl, FormLabel, Input, FlexProps } from "@chakra-ui/react";
-import React, { ChangeEvent, FC } from "react";
-
+import { Flex, Grid, GridItem, VStack, Text, FormControl, FormLabel, Input, FlexProps, useToast } from "@chakra-ui/react";
+import React, { ChangeEvent, FC, useMemo } from "react";
 
 type CalendarDateProps = {
   date: number | null;
   month: number;
   year: number;
-  hour?: number;
-  seconds?: number;
-  minutes?: number;
-  isAvailable?: boolean
+  hour: number;
+  seconds: number;
+  minutes: number;
+  isToday: boolean;
+  isWeekend: boolean;
+  isAvailable?: boolean;
 };
 
 type CalendarHourProps = {
@@ -19,34 +20,23 @@ type CalendarHourProps = {
 };
 
 interface CustomCalendarProps {
-  type?: "TIME" | "DATE";
-  onSelectDate?: (date: CalendarDateProps) => void;
+  onSelectDate?: (date: Date) => void;
   onSelectTime?: (e: ChangeEvent<HTMLInputElement>) => void;
-  containerStyle?: FlexProps
-  excludedDates?: CalendarDateProps[]
-};
+  containerStyle?: FlexProps;
+  excludedDates?: number[];
+}
 
-
-
-const CustomCalendar:FC<CustomCalendarProps> = (props) => {
-  const [startDate, setStartDate] = React.useState<CalendarDateProps | undefined>(undefined);
-  const [endDate, setEndDate] = React.useState<CalendarDateProps | undefined>(undefined);
-  const [startTime, setStartTime] = React.useState<CalendarHourProps | undefined>(undefined);
-  const [endTime, setEndTime] = React.useState<CalendarHourProps | undefined>(undefined);
+const CustomCalendar: FC<CustomCalendarProps> = ({
+  onSelectDate,
+  onSelectTime,
+  containerStyle,
+  excludedDates = [],
+}) => {
+  const [selectedDate, setSelectedDate] = React.useState<number>()
   const [currentDate, setCurrentDate] = React.useState(new Date());
   const [daysInMonth, setDaysInMonth] = React.useState<CalendarDateProps[]>([]);
 
-  const renderDayLabels = () => (
-    <GridItem rowSpan={1} colSpan={7} w="full" h="full">
-      <Flex w="full" h="full" alignItems="center" justifyContent="center">
-        {["S", "M", "T", "W", "T", "F", "S"].map((label) => (
-          <Text key={label} w="full" h="full" display="flex" alignItems="center" justifyContent="center" userSelect="none">
-            {label}
-          </Text>
-        ))}
-      </Flex>
-    </GridItem>
-  );
+  const toast = useToast();
 
   const goToNextMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
@@ -58,109 +48,130 @@ const CustomCalendar:FC<CustomCalendarProps> = (props) => {
 
 
   React.useEffect(() => {
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
+     const generateDays = () => {
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+      const today = new Date(year, month, currentDate.getDate());
 
-    // Calculate days in the current month
-    const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
+      // Calculate previous month's details
+      const prevMonthDate = new Date(year, month, 0);
+      const lastDateOfPrevMonth = prevMonthDate.getDate();
+      const firstDayOfMonth = new Date(year, month, 1).getDay();
+      const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
 
-    const daysArray: CalendarDateProps[] = [
-      ...Array.from({ length: firstDayOfMonth }, () => ({ date: null, month, year })), // Empty slots for the days before the 1st of the month
-      ...Array.from({ length: lastDateOfMonth }, (_, i) => ({ date: i + 1, month, year, })), // Days of the current month
-    ];
+      const prevMonthDaysArray: CalendarDateProps[] = [];
 
-    //set isActive  false if included to excluded dates
+      // Previous month days
+      for (let i = firstDayOfMonth; i > 0; i--) {
+        const date = lastDateOfPrevMonth - i + 1;
+        prevMonthDaysArray.push({
+          date,
+          month: (month - 1 + 12) % 12,
+          year: month === 0 ? year - 1 : year,
+          hour: 0,
+          minutes: 0,
+          seconds: 0,
+          isAvailable: !excludedDates.includes(date) && new Date(year, month - 1, date) >= today,
+          isToday: false,
+          isWeekend: false,
+        });
+      }
 
-    setDaysInMonth(daysArray);
+      const daysArray: CalendarDateProps[] = [];
 
-  }, [currentDate]);
-
-  const generateDays = () => {
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-
-    const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
-
-    const today = new Date();
-
-    const daysArray: CalendarDateProps[] = [
-      ...Array.from({ length: firstDayOfMonth }, () => ({
-        date: null,
-        month,
-        year,
-        isAvailable: false,
-      })),
-
-      ...Array.from({ length: lastDateOfMonth }, (_, i) => {
-        const dayDate = new Date(year, month, i + 1);
+      // Current month days
+      for (let i = 0; i < lastDateOfMonth; i++) {
+        const date = i + 1;
+        const dayDate = new Date(year, month, date);
         const isToday = dayDate.toDateString() === today.toDateString();
         const isWeekend = dayDate.getDay() === 0 || dayDate.getDay() === 6;
 
-        return { date: i + 1,  month,  year, isAvailable: checkDateAvailability(i + 1)};
-      }),
-    ];
+        daysArray.push({
+          date,
+          month,
+          year,
+          hour: 0,
+          minutes: 0,
+          seconds: 0,
+          isAvailable: !excludedDates.includes(date) && dayDate >= today,
+          isToday,
+          isWeekend,
+        });
+      }
 
-    setDaysInMonth(daysArray);
-  };
+      // Next month days
+      const nextMonthDays = 42 - (prevMonthDaysArray.length + daysArray.length);
+      for (let i = 0; i < nextMonthDays; i++) {
+        const date = i + 1;
+        daysArray.push({
+          date,
+          month: (month + 1) % 12,
+          year: month === 11 ? year + 1 : year,
+          hour: 0,
+          minutes: 0,
+          seconds: 0,
+          isAvailable: true, // Enable future dates
+          isToday: false,
+          isWeekend: false,
+        });
+      }
 
-  const handleDayClick = (day: CalendarDateProps) => {
-    if (day.date) {
-      alert(`You clicked on day ${day.date}`);
-      const newDate = new Date(currentDate);
+      setDaysInMonth([...prevMonthDaysArray, ...daysArray]);
+    };
+
+    generateDays();
+  }, []);
+
+  const handleOnSelectedDayClick = (day: CalendarDateProps) => {
+    const newDate = new Date(currentDate);
+    if (day.date && day.isAvailable) {
       newDate.setDate(day.date);
       setCurrentDate(newDate);
+      setSelectedDate(day.date)
+      onSelectDate?.(newDate);
     }
+
+   
   };
 
-  const checkDateAvailability = (day: number) => {
-    // Example logic to determine if a date is available
-    const unavailableDates = [10, 15, 20];
-    return !unavailableDates.includes(day);
-  };
-
-
-  return(
-    <Flex {...props.containerStyle}>
-      {
-        props.type === "DATE" && (
-          <Grid w="full" h="full" templateColumns="repeat(7, 1fr)" templateRows="repeat(7, 1fr)" gap="1px">
-            {renderDayLabels()}
-            {daysInMonth.map((day, index) => (
-              <GridItem
-                w="full"
-                h="full"
-                key={index}
-                rowSpan={1}
-                colSpan={1}
-                cursor="pointer"
-                _hover={{ bg: day.date !== null ? "gray.300" : "" }}
-                onClick={() => props.onSelectDate?.(day)}
-                bg={day.date !== null && currentDate.getDate() === day.date ? "gray.300" : "gray.100"}
-              >
-                <VStack alignItems="center" justifyContent="center" h="full">
-                  <Text userSelect="none" color={day.date !== null && currentDate.getDate() === day.date ? "white" : ""}>
-                    {day.date}
-                  </Text>
-                </VStack>
-              </GridItem>
+  return (
+    <Flex flexDirection="column" {...containerStyle}>
+      <Grid w="full" h="full" templateColumns="repeat(7, 1fr)" templateRows="repeat(7, 1fr)" gap="1px">
+        <GridItem rowSpan={1} colSpan={7} w="full" h="full">
+          <Flex w="full" h="full" alignItems="center" justifyContent="center">
+            {["S", "M", "T", "W", "T", "F", "S"].map((label, index) => (
+              <Text key={label + index} w="full" h="full" display="flex" alignItems="center" justifyContent="center" userSelect="none">
+                {label}
+              </Text>
             ))}
-          </Grid>
-        )
-      }
-
-      {
-        props.type === "TIME" && (
-           <FormControl>
-              <FormLabel>Select Time</FormLabel>
-              <Input type="time" name="startTime" maxW={200} onChange={props.onSelectTime}/>
-          </FormControl>
-        )
-      }
-
+          </Flex>
+        </GridItem>
+        {daysInMonth.map((day, index) => (
+          <GridItem
+            w="full"
+            h="full"
+            key={`date-${index}-${day.date}`}
+            rowSpan={1}
+            colSpan={1}
+            _hover={{ bg: day.isAvailable ? selectedDate === day.date ? "#E9490A" : "gray.200" : "gray.300" }}
+            onClick={() => handleOnSelectedDayClick(day)}
+            cursor={day.date !== null ? "pointer" : "default"}
+            bg={day.isAvailable ? selectedDate === day.date ? "#E9490A" : "gray.200" : "gray.300"}
+          >
+            <VStack alignItems="center" justifyContent="center" h="full">
+              <Text
+                userSelect="none"
+                color={day.isToday ? "red.500" : selectedDate === day.date ?"#ffffff" : ""}
+                aria-label={`Day ${day.date}`}
+              >
+                {day.date}
+              </Text>
+            </VStack>
+          </GridItem>
+        ))}
+      </Grid>
     </Flex>
-  )
+  );
 };
 
 export default CustomCalendar;
