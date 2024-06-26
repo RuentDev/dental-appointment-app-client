@@ -1,12 +1,11 @@
 import React from "react";
-import { Box, Container, Flex, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Container, Flex, Text, Image } from "@chakra-ui/react";
 
 interface OrthodonticCardProps {
   src: string;
   label: string;
-  width: number;
-  height: number;
+  width: any;
+  height: any;
   borderWidth: string;
 }
 

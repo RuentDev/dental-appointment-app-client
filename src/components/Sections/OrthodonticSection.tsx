@@ -9,12 +9,13 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
   return (
     <Container
       maxW="100%"
-      h="90vh"
+      maxH="100%"
       backgroundColor="#EEF8FF"
       fontWeight="700"
       border={0}
       borderRadius={0}
       color="#024B6C"
+      p={20}
     >
       <Flex
         display="flex"
@@ -32,30 +33,31 @@ const OrthodonticSection: FC<OrthodonticProps> = ({}) => {
           <br />
           add new custom services to the list
         </Text>
-      </Flex>
 
-      <Grid
-        templateColumns={{
-          base: "repeat(1, 1fr)",
-          sm: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
-        }}
-        border="1px solid red"
-      >
-        {/* {orthodonticServicesData.map((service) => {
-          return (
-            <Cards.OrthodonticCard
-              key={service.id}
-              src={service.imgpath}
-              label={service.label}
-              width={450}
-              height={308}
-              borderWidth="0px"
-            />
-          );
-        })} */}
-      </Grid>
+        <Grid
+          marginTop={10}
+          gap={120}
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          }}
+        >
+          {orthodonticServicesData.map((service) => {
+            return (
+              <Cards.OrthodonticCard
+                key={service.id}
+                src={service.imgpath}
+                label={service.label}
+                width={{ sm:"292px", md:"285px", lg: "348px" }}
+                height={{ sm:'250px', md:"250px", lg: "308px" }}
+                borderWidth="0px"
+              />
+            );
+          })}
+        </Grid>
+      </Flex>
     </Container>
   );
 };
