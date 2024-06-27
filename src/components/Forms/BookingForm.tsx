@@ -1,17 +1,32 @@
 "use client"
 import { Box, Button, Center, Container, Flex, Grid, GridItem, HStack, Spinner, Stack, Step, StepDescription, StepIcon, StepIndicator, StepNumber, Stepper, StepSeparator, StepStatus, StepTitle, Text, useSteps } from '@chakra-ui/react'
-import React from 'react' 
+import React, { useState } from 'react' 
 import Inputs from '../Inputs'
 import { useRouter } from 'next/navigation'
-import Cards from '../Cards'
 import { Formik, FormikProps } from 'formik'
 import { createNewAppointment } from '@/app/actions'
 
 const steps = [
-  { title: 'Select Date', description: '' },
-  { title: 'Select Time', description: '' },
-  { title: 'Select Service', description: '' },
-  { title: 'Personal Info', description: '' }
+  { 
+    title: 'Select Date', 
+    description: '',
+
+  },
+  { 
+    title: 'Select Time', 
+    description: '' ,
+
+  },
+  { 
+    title: 'Select Service', 
+    description: '',
+
+  },
+  { 
+    title: 'Fillup Personal Info', 
+    description: '',
+
+  },
 ]
 
 
@@ -27,9 +42,16 @@ type Values = {
 
 };
 
-const BookingForm:React.FC<BookingFormProps> = ({showSideImage}) => {
-
+const BookingForm:React.FC<BookingFormProps> = ({}) => {
   const router = useRouter()
+  const [formState, setFormState] = useState({
+    date: "",
+    time: "",
+    duration: "", 
+    doctorId: "",
+    description: "",
+  })
+
 
   const { activeStep, goToNext, goToPrevious, setActiveStep} = useSteps({
     index: 0,
@@ -49,8 +71,13 @@ const BookingForm:React.FC<BookingFormProps> = ({showSideImage}) => {
   }
 
   const handleSelectDate = (args: any) => {
-    console.log(args)
+    setFormState({
+      ...formState,
+      date: args
+    })
   }
+
+
   
 
   return (
@@ -104,11 +131,22 @@ const BookingForm:React.FC<BookingFormProps> = ({showSideImage}) => {
 
                 <GridItem boxSize="100%" colSpan={2} rowSpan={4}>
                   <Center boxSize="100%" alignItems="start" pos="relative">
-                    {activeStep === 0 && ( <Inputs.AppointmentScheduleInput /> )}
-                    {activeStep === 2 && ( <Inputs.ServicesInput /> )}
+                    {activeStep === 0 && ( 
+                      <Inputs.CustomCalendar 
+                        onSelectDate={handleSelectDate}
+                        excludedDates={[29, 30]}
+                        containerStyle={{
+                          w: "full",
+                          h: "full"
+                        }}
+                      /> 
+                    )}
+
+                    {activeStep === 1 && ( <Inputs.CustomTimeInput /> )}
                       
-                    {activeStep === 3 && ( <Inputs.ServicesInput /> )}
-                    {activeStep === 4 && ( <Inputs.PersonalDetailsInput /> )}
+                    {activeStep === 2 && ( <Inputs.ServicesInput /> )}
+
+                    {activeStep === 3 && ( <Inputs.PersonalDetailsInput /> )}
                   </Center>
                 </GridItem>
 

@@ -129,6 +129,12 @@ const CustomCalendar: FC<CustomCalendarProps> = ({
       setCurrentDate(newDate);
       setSelectedDate(day.date)
       onSelectDate?.(newDate);
+    }else{
+      toast({
+        status: "error",
+        title: "Not Available",
+        position: "bottom"
+      })
     }
 
    
@@ -161,7 +167,7 @@ const CustomCalendar: FC<CustomCalendarProps> = ({
             <VStack alignItems="center" justifyContent="center" h="full">
               <Text
                 userSelect="none"
-                color={day.isToday ? "red.500" : selectedDate === day.date ?"#ffffff" : ""}
+                color={selectedDate === day.date && day.isToday ? "red.500" : ""}
                 aria-label={`Day ${day.date}`}
               >
                 {day.date}
